@@ -1,0 +1,10 @@
+# Auto-detect text files; preserve binary integrity
+* text=auto eol=lf
+
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
+*.woff binary
+*.woff2 binary
