@@ -23,7 +23,7 @@ const teasers: Teaser[] = [
     title: "Pop-Up Chapel Co.",
     context: "Riipen consulting engagement · 60 hrs · Apr–May 2026",
     blurb:
-      "Led the email-automation and document-generation workstream — a Python pipeline that renders eight branded wedding-day documents from one booking, plus a live Next.js companion tool deployed on Vercel.",
+      "Led the email-automation and document-generation workstream: a Python pipeline that turns one booking into eight branded wedding-day documents, plus a live Next.js companion tool on Vercel.",
     chips: ["Python", "Pydantic", "Next.js", "TypeScript"],
     href: "/projects/pop-up-chapel",
   },

@@ -56,9 +56,9 @@ export default function PaveScanPage() {
           PaveScan AI
         </h1>
         <p className="mt-5 text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-          A pavement-inspection model that reads photos, classifies defects,
-          and scores the surface against the ASTM D6433 Pavement Condition
-          Index — packaged as a Streamlit dashboard with a sample PDF report.
+          A pavement-inspection model that reads photos and scores the surface
+          against the ASTM D6433 Pavement Condition Index. Packaged as a
+          Streamlit dashboard with a sample PDF report.
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <a
@@ -101,12 +101,11 @@ export default function PaveScanPage() {
         <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
           Pavement Condition Index surveys are still done by trained inspectors
           walking the surface, sketching defects, and tabulating deduct values
-          by hand against ASTM D6433. The standard is well-defined; the
-          bottleneck is human time per kilometre — which is what makes
-          network-scale inspection expensive enough that municipalities ration
-          it. A model that can read a photo and produce the same scoring inputs
-          changes the unit economics of the survey, not the standard behind
-          the score.
+          by hand against ASTM D6433. The standard works fine — the bottleneck
+          is how long it takes per kilometre, and the cost adds up fast at the
+          network scale a municipality has to cover. A model that can read a
+          photo and produce the same scoring inputs changes the cost of the
+          survey, not the standard behind the score.
         </p>
       </section>
 
@@ -116,12 +115,12 @@ export default function PaveScanPage() {
         </h2>
         <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl mb-8">
           PaveScan AI is a Python pipeline. A YOLO11 instance-segmentation
-          model fine-tuned on labelled pavement-defect imagery produces
-          per-defect class IDs and pixel masks; the masks feed an ASTM D6433
+          model, fine-tuned on labelled pavement-defect images, produces
+          per-defect class IDs and pixel masks. Those masks feed an ASTM D6433
           scoring routine that returns a PCI value plus per-defect deduct
           values. A Streamlit dashboard wraps the upload-to-report flow, a
           Folium map plots GPS-tagged inspections, and a ReportLab module
-          emits a printable PDF — the same one linked above.
+          generates the printable PDF you can download above.
         </p>
         <div className="rounded-lg border border-border/50 bg-card/30 p-4 sm:p-6 overflow-x-auto">
           <svg
@@ -231,8 +230,8 @@ export default function PaveScanPage() {
             </span>
           </p>
           <p className="mt-3 text-sm text-muted-foreground max-w-2xl">
-            V2 fine-tune on YOLO11l, 200-epoch run. Box detection is the strong
-            suit; pixel-perfect mask segmentation on thin, branching cracks is
+            V2 fine-tune on YOLO11l, 200 epochs. Box detection is the strong
+            part. Pixel-perfect mask segmentation on thin, branching cracks is
             where the next round of work goes.
           </p>
         </div>
@@ -265,59 +264,56 @@ export default function PaveScanPage() {
           </figure>
         </div>
         <p className="mt-6 text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
-          Predictions track the labels well on contiguous, high-contrast
-          defects. The model still under-segments thin and branching cracks,
-          and it occasionally fragments a single defect into multiple
-          instances. The 0.395 mask mAP50 is honest: this is a working
-          detector, not a finished segmenter, and the next training round
-          should focus there.
+          Predictions match the labels well on big, high-contrast defects.
+          The model still under-segments thin and branching cracks, and
+          sometimes splits one defect into a few separate detections. The
+          0.395 mask mAP50 is honest: this is a working detector, not a
+          finished segmenter, and the next training round should focus there.
         </p>
       </section>
 
       <section className="mb-16 sm:mb-20">
         <h2 className="font-[family-name:var(--font-fraunces)] text-3xl font-medium tracking-tight mb-5">
-          Case study: silent EMA poisoning at long training horizons
+          What broke during V2 training: silent EMA corruption from AMP
         </h2>
         <div className="space-y-5 text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
           <p>
             The V2 fine-tune ran on YOLO11l at 1280-pixel input resolution,
             with aggressive augmentation and focal loss to push recall on the
             harder defect classes. Around sixty epochs in, training loss kept
-            trending down on paper, but the validation mAP curves flatlined
-            and the saved <code className="rounded bg-muted px-1 py-0.5 text-[0.9em]">best.pt</code>{" "}
-            checkpoint stopped improving — well before any reasonable
-            convergence point.
+            trending down on paper, but validation mAP went flat and{" "}
+            <code className="rounded bg-muted px-1 py-0.5 text-[0.9em]">best.pt</code>{" "}
+            stopped improving — well before any reasonable convergence point.
           </p>
           <p>
             The model itself was fine. The exponential-moving-average buffers
-            were not. Mixed-precision training was on by default; at 1280 px
+            were not. Mixed-precision training was on by default. At 1280 px
             with aggressive augmentation and focal loss, the loss surface
             produced occasional non-finite gradients that AMP&apos;s loss
-            scaler swallowed. The poison was silent — the live model kept
-            training on rescaled gradients, but the EMA buffers accumulated
-            NaN values that got serialized into the checkpoint every epoch.
-            Validation mAP, computed against the EMA weights, naturally went
-            nowhere.
+            scaler absorbed without raising. The live model kept training on
+            rescaled gradients fine, but the EMA buffers were quietly
+            accumulating NaN values, and those NaNs got serialized into the
+            checkpoint every epoch. Validation mAP, computed against the EMA
+            weights, naturally went nowhere.
           </p>
           <p>
-            The loud failure came when I tried to warm-start the next run from
-            the saved checkpoint to save time. Even with{" "}
+            I caught it when I tried to warm-start the next run from the
+            saved checkpoint to save time. Even with{" "}
             <code className="rounded bg-muted px-1 py-0.5 text-[0.9em]">amp=False</code>{" "}
-            set explicitly, the run still produced NaN losses on the first
-            batch — not a training issue, but the corrupted EMA buffers
-            loading back in. The right answer was to load a clean
+            set explicitly, the run produced NaN losses on the first batch —
+            not a training problem, just the corrupted EMA buffers loading
+            back in. The fix: drop the bad checkpoint, load a clean
             Ultralytics-pretrained YOLO11l weight, set{" "}
             <code className="rounded bg-muted px-1 py-0.5 text-[0.9em]">amp=False</code>{" "}
-            from the start, and treat the corrupted run as an unrecoverable
-            cost.
+            from the start, and write off the corrupted run as an
+            unrecoverable cost.
           </p>
           <p>
-            The lesson worth keeping: at long training horizons with
-            high-resolution inputs and aggressive loss configurations, AMP is
-            not free — it&apos;s a silent failure mode that can poison
-            checkpoints in a way that&apos;s expensive to recover from. For V2
-            onward, AMP defaults to off in this repo, with a single comment
-            pointing back at this incident.
+            The lesson: on long training runs with high-resolution inputs and
+            aggressive loss configurations, AMP is not free. It can quietly
+            corrupt checkpoints in a way that&apos;s expensive to recover
+            from. For V2 onward, AMP defaults to off in this repo, with a
+            single comment pointing back at this incident.
           </p>
         </div>
       </section>

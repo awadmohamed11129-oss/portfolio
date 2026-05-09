@@ -11,12 +11,11 @@ export function About() {
       </h2>
       <div className="max-w-2xl space-y-5 text-base sm:text-lg leading-relaxed text-foreground/90">
         <p>
-          I&apos;m a civil engineering student at Toronto
-          Metropolitan University, focused on infrastructure inspection — how
-          pavements, bridges, and buildings get surveyed, scored, and
-          maintained. The field still does a lot of that work by hand, so I
-          build tools that combine civil-engineering standards with computer
-          vision and automation.
+          I&apos;m a civil engineering student at Toronto Metropolitan
+          University. I work on infrastructure inspection — how roads,
+          bridges, and buildings get checked and scored. Most of that still
+          gets done by hand, so I build tools that put computer vision behind
+          the same standards inspectors already use.
         </p>
         <p>
           <Link
@@ -25,22 +24,23 @@ export function About() {
           >
             PaveScan AI
           </Link>{" "}
-          is my main project: a YOLO11 segmentation model that reads pavement
-          imagery and scores it against the ASTM D6433 Pavement Condition
-          Index standard, with a Streamlit dashboard and a sample PDF report.
+          is my main project. It&apos;s a YOLO11 segmentation model that
+          reads pavement images and scores them against the ASTM D6433
+          Pavement Condition Index, with a Streamlit dashboard and a sample
+          PDF report.
         </p>
         <p>
           I also led the email-automation and document-generation workstream
-          of a{" "}
+          on a{" "}
           <Link
             href="/projects/pop-up-chapel"
             className="underline decoration-border underline-offset-4 hover:decoration-foreground transition-colors"
           >
-            60-hour Riipen consulting engagement
+            60-hour Riipen consulting project
           </Link>{" "}
-          for a Canadian micro-wedding business — a Python pipeline that
-          auto-generates eight branded wedding-day documents from a single
-          booking, plus a live Next.js companion tool on Vercel.
+          for a Canadian micro-wedding company. The work shipped as a Python
+          pipeline that turns one booking into eight branded wedding-day
+          documents, plus a live Next.js companion tool on Vercel.
         </p>
         <p>
           I&apos;m looking for civil engineering co-op placements where

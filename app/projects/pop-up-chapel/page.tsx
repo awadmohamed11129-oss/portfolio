@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 export const metadata: Metadata = {
   title: "Pop-Up Chapel Co.",
   description:
-    "60-hour Riipen consulting engagement for a Canadian micro-wedding business. Led the email-automation and document-generation workstream — a Python pipeline that renders eight branded day-of documents from one booking, plus a live Next.js companion tool deployed on Vercel.",
+    "60-hour Riipen consulting project for a Canadian micro-wedding company. Led the email-automation and document-generation workstream: a Python pipeline that turns one booking into eight branded wedding-day PDFs, plus a live Next.js companion tool on Vercel.",
 };
 
 const pythonStack = [
@@ -83,11 +83,11 @@ export default function PopUpChapelPage() {
           Pop-Up Chapel Co.
         </h1>
         <p className="mt-5 text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-          A 60-hour Riipen consulting engagement for a Canadian micro-wedding
-          business. I led the email-automation and document-generation
-          workstream — a Python pipeline that renders eight branded day-of
-          documents from one booking JSON, plus a live Next.js companion tool
-          deployed on Vercel.
+          A 60-hour Riipen consulting project for a Canadian micro-wedding
+          company. I led the email-automation and document-generation
+          workstream: a Python pipeline that turns one booking into eight
+          branded wedding-day PDFs, plus a live Next.js companion tool on
+          Vercel.
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <a
@@ -116,8 +116,8 @@ export default function PopUpChapelPage() {
             className="w-full rounded-lg border border-border/50"
           />
           <figcaption className="mt-3 text-sm text-muted-foreground">
-            The live companion tool, deployed on Vercel — Google Sheets API
-            with HMAC-signed cookie auth and Zod validation on every endpoint.
+            The live companion tool on Vercel — Google Sheets API with
+            HMAC-signed cookie auth and Zod validation on every endpoint.
           </figcaption>
         </figure>
       </section>
@@ -127,15 +127,15 @@ export default function PopUpChapelPage() {
           The engagement
         </h2>
         <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
-          Pop-Up Chapel Co. is a Canadian micro-wedding business operating
+          Pop-Up Chapel Co. is a Canadian micro-wedding company operating
           across six cities. Through Riipen, a three-person student team took
-          on a 60-hour consulting engagement to map the company&apos;s
-          communication systems and prototype the highest-impact automations.
-          I led the email-automation and document-generation workstream;
-          another teammate handled the underlying database and platform
-          architecture, and a third handled lead routing and intake. April 3 –
-          May 8, 2026, on a $1,400 stipend through the program — student
-          consulting work, not senior agency work.
+          on a 60-hour consulting project to map the company&apos;s
+          communication systems and prototype the automations that would save
+          the most time. I led the email-automation and document-generation
+          workstream. Another teammate handled the underlying database and
+          platform architecture, and a third handled lead routing and intake.
+          April 3 – May 8, 2026, on a $1,400 stipend through the program —
+          student consulting work, not senior agency work.
         </p>
       </section>
 
@@ -144,12 +144,12 @@ export default function PopUpChapelPage() {
           The problem
         </h2>
         <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
-          Each booking required roughly eight hours of manual document work —
+          Each booking required roughly eight hours of manual document work:
           copy-pasting names, dates, package details, and vendor assignments
-          into four separate templates, with the brand voice drifting
-          slightly every time. The CEO needed booking-driven generation that
-          could fan out from a single source of truth and stay in voice
-          without proofreading every email.
+          into four separate templates, with the wording coming out a bit
+          different each time. The CEO needed something that could take one
+          booking and generate every day-of document from it, in the brand
+          voice, without proofreading every email.
         </p>
       </section>
 
@@ -159,10 +159,10 @@ export default function PopUpChapelPage() {
         </h2>
         <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl mb-5">
           A command-line pipeline that takes one booking JSON, validates it
-          against Pydantic schemas, generates AI copy with deterministic
-          fallback, renders Jinja2 templates against the brand stylesheet,
-          and ships eight branded day-of PDFs through headless Playwright in
-          about ten seconds end to end.
+          against Pydantic schemas, generates AI copy (with a deterministic
+          fallback if the API is unavailable), renders Jinja2 templates
+          against the brand stylesheet, and ships eight branded day-of PDFs
+          through headless Playwright. About ten seconds per booking.
         </p>
         <ul className="space-y-3 text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl list-disc pl-6 marker:text-muted-foreground">
           <li>
@@ -258,9 +258,9 @@ export default function PopUpChapelPage() {
           What I built — live Next.js companion tool
         </h2>
         <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl mb-5">
-          A Next.js companion deployed on Vercel that pulls bookings from a
-          Google Sheet and lets the CEO regenerate any booking&apos;s ZIP of
-          documents in the browser without running the Python CLI. About two
+          A Next.js companion on Vercel that pulls bookings from a Google
+          Sheet and lets the CEO regenerate any booking&apos;s ZIP of
+          documents in the browser, without touching the Python CLI. About two
           seconds per regeneration, sixteen files in the ZIP.
         </p>
         <ul className="space-y-3 text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl list-disc pl-6 marker:text-muted-foreground">
@@ -300,10 +300,10 @@ export default function PopUpChapelPage() {
         </h2>
         <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl mb-6">
           The communication audit mapped 49 existing touchpoints across nine
-          booking-lifecycle stages. The deliverable the CEO flagged as the
-          highest-impact insight from this workstream was a list of nine that
-          were structurally missing — points where the customer hits silence
-          today, and where the brand could be doing real work instead.
+          booking-lifecycle stages. The piece the CEO flagged as the
+          highest-impact finding from this workstream was a list of nine
+          touchpoints we weren&apos;t sending at all — places where customers
+          expected to hear from the company but didn&apos;t.
         </p>
         <ul className="space-y-2 max-w-3xl">
           {missingTouchpoints.map((t) => (
@@ -365,9 +365,8 @@ export default function PopUpChapelPage() {
           Sample documents
         </h2>
         <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl mb-6">
-          Four of the eight day-of documents the pipeline renders, taken from
-          a fictional Sarah-and-Mark sample booking — same templates the
-          live tool ships.
+          Four of the eight day-of documents the pipeline generates, from a
+          sample Sarah-and-Mark booking. Same templates the live tool ships.
         </p>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {sampleDocs.map((d) => (
@@ -399,9 +398,9 @@ export default function PopUpChapelPage() {
           <code className="rounded bg-muted px-1 py-0.5 text-[0.9em]">
             /add-event
           </code>{" "}
-          continues through phases five to twelve over the summer, and the
-          touchpoint sequences from the audit get wired into the
-          delivery layer as the platform team finishes the database work.
+          continues through phases five to twelve over the summer. The nine
+          missing touchpoints from the audit get wired into the email-delivery
+          layer as the platform team finishes the database work.
         </p>
       </section>
 
