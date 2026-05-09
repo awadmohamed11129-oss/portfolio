@@ -54,7 +54,15 @@ export default function RootLayout({
             >
               Mohamad Awad
             </Link>
-            <ul className="flex items-center gap-6 text-muted-foreground">
+            <ul className="flex flex-wrap items-center gap-x-5 gap-y-2 text-muted-foreground">
+              <li>
+                <Link
+                  href="/#projects"
+                  className="hover:text-foreground transition-colors"
+                >
+                  Projects
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/#about"
@@ -65,18 +73,18 @@ export default function RootLayout({
               </li>
               <li>
                 <Link
-                  href="/projects/pavescan-ai"
-                  className="hover:text-foreground transition-colors"
+                  href="/#experience"
+                  className="hover:text-foreground transition-colors hidden sm:inline"
                 >
-                  PaveScan
+                  Experience
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/projects/pop-up-chapel"
-                  className="hover:text-foreground transition-colors"
+                  href="/#skills"
+                  className="hover:text-foreground transition-colors hidden sm:inline"
                 >
-                  Pop-Up Chapel
+                  Skills
                 </Link>
               </li>
               <li>
