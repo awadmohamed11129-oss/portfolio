@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export function About() {
   return (
     <section
@@ -17,10 +19,15 @@ export function About() {
           vision and automation.
         </p>
         <p>
-          PaveScan AI is my main project: a YOLO11 segmentation model that
-          reads pavement imagery and scores it against the ASTM D6433 Pavement
-          Condition Index standard, with a Streamlit dashboard and a sample
-          PDF report.
+          <Link
+            href="/projects/pavescan-ai"
+            className="underline decoration-border underline-offset-4 hover:decoration-foreground transition-colors"
+          >
+            PaveScan AI
+          </Link>{" "}
+          is my main project: a YOLO11 segmentation model that reads pavement
+          imagery and scores it against the ASTM D6433 Pavement Condition
+          Index standard, with a Streamlit dashboard and a sample PDF report.
         </p>
         <p>
           I also led the email-automation and document-generation workstream
