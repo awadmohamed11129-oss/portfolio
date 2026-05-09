@@ -31,10 +31,16 @@ export function About() {
         </p>
         <p>
           I also led the email-automation and document-generation workstream
-          of a 60-hour Riipen consulting engagement for a Canadian
-          micro-wedding business — a Python pipeline that auto-generates eight
-          branded wedding-day documents from a single booking, plus a live
-          Next.js companion tool on Vercel.
+          of a{" "}
+          <Link
+            href="/projects/pop-up-chapel"
+            className="underline decoration-border underline-offset-4 hover:decoration-foreground transition-colors"
+          >
+            60-hour Riipen consulting engagement
+          </Link>{" "}
+          for a Canadian micro-wedding business — a Python pipeline that
+          auto-generates eight branded wedding-day documents from a single
+          booking, plus a live Next.js companion tool on Vercel.
         </p>
         <p>
           I&apos;m looking for civil engineering co-op placements where
