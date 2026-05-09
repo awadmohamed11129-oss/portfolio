@@ -62,7 +62,7 @@ export default async function OpengraphImage() {
               color: "#A1A1AA",
             }}
           >
-            Toronto, ON · 2nd-year civil engineering · TMU
+            Toronto, ON · Civil engineering · TMU
           </div>
           <div
             style={{

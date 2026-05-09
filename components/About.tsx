@@ -11,7 +11,7 @@ export function About() {
       </h2>
       <div className="max-w-2xl space-y-5 text-base sm:text-lg leading-relaxed text-foreground/90">
         <p>
-          I&apos;m a second-year civil engineering student at Toronto
+          I&apos;m a civil engineering student at Toronto
           Metropolitan University, focused on infrastructure inspection — how
           pavements, bridges, and buildings get surveyed, scored, and
           maintained. The field still does a lot of that work by hand, so I

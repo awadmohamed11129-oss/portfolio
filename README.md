@@ -1,6 +1,6 @@
 # Portfolio — Mohamad Awad
 
-Personal portfolio site for Mohamad Awad — second-year civil engineering student at Toronto Metropolitan University. Built with Next.js 15 (App Router), TypeScript, Tailwind CSS, and shadcn/ui.
+Personal portfolio site for Mohamad Awad — civil engineering student at Toronto Metropolitan University. Built with Next.js 15 (App Router), TypeScript, Tailwind CSS, and shadcn/ui.
 
 ## Run locally
 

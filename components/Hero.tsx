@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, FileText } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
@@ -9,7 +10,7 @@ export function Hero() {
       <div className="grid gap-12 sm:gap-16 sm:grid-cols-[1fr_auto] items-center">
         <div>
           <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">
-            Toronto, ON · 2nd-year civil engineering · TMU
+            Toronto, ON · Civil engineering · TMU
           </p>
           <h1 className="font-[family-name:var(--font-fraunces)] text-5xl sm:text-6xl font-medium leading-[1.05] tracking-tight">
             Mohamad Awad
@@ -56,13 +57,15 @@ export function Hero() {
             </a>
           </div>
         </div>
-        {/* Headshot slot — swap to <Image src="/images/headshot.jpg" /> when ready */}
-        <div
-          aria-hidden
-          className="hidden sm:flex h-48 w-48 lg:h-56 lg:w-56 shrink-0 items-center justify-center rounded-full border border-border/60 bg-muted/40 font-[family-name:var(--font-fraunces)] text-4xl text-muted-foreground/70"
-        >
-          MA
-        </div>
+        <Image
+          src="/images/headshot.jpg"
+          alt="Mohamad Awad"
+          width={224}
+          height={224}
+          priority
+          sizes="(min-width: 1024px) 224px, 192px"
+          className="hidden sm:block h-48 w-48 lg:h-56 lg:w-56 shrink-0 rounded-full border border-border/60 object-cover"
+        />
       </div>
     </section>
   );

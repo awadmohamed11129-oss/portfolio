@@ -22,11 +22,11 @@ export const metadata: Metadata = {
     template: "%s — Mohamad Awad",
   },
   description:
-    "Second-year civil engineering student at Toronto Metropolitan University, building AI and automation tools for infrastructure inspection.",
+    "Civil engineering student at Toronto Metropolitan University, building AI and automation tools for infrastructure inspection.",
   openGraph: {
     title: "Mohamad Awad — Civil Engineering & AI at TMU",
     description:
-      "Second-year civil engineering student at Toronto Metropolitan University, building AI and automation tools for infrastructure inspection.",
+      "Civil engineering student at Toronto Metropolitan University, building AI and automation tools for infrastructure inspection.",
     type: "website",
     locale: "en_CA",
   },
