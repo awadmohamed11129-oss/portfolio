@@ -20,7 +20,7 @@ export function About() {
         <p>
           <Link
             href="/projects/pavescan-ai"
-            className="underline decoration-border underline-offset-4 hover:decoration-foreground transition-colors"
+            className="underline decoration-border underline-offset-4 hover:decoration-primary transition-colors"
           >
             PaveScan AI
           </Link>{" "}
@@ -34,7 +34,7 @@ export function About() {
           on a{" "}
           <Link
             href="/projects/pop-up-chapel"
-            className="underline decoration-border underline-offset-4 hover:decoration-foreground transition-colors"
+            className="underline decoration-border underline-offset-4 hover:decoration-primary transition-colors"
           >
             60-hour Riipen consulting project
           </Link>{" "}

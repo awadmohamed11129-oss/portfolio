@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Download, FileText } from "lucide-react";
 import { GithubIcon } from "@/components/BrandIcons";
@@ -20,6 +21,33 @@ const techStack = [
   "ASTM D6433",
   "Roboflow datasets",
   "ReportLab",
+];
+
+const dashboardTour = [
+  {
+    src: "/images/pavescan/dashboard-upload.png",
+    alt: "Streamlit upload page with four sample crack images shown as thumbnails",
+    caption:
+      "Upload — drag-and-drop the four sample crack images; thumbnails confirm what's about to be scored.",
+  },
+  {
+    src: "/images/pavescan/dashboard-detection.png",
+    alt: "Streamlit detection page showing six per-image defect detections with severity badges",
+    caption:
+      "Detection — six defects across four images, four flagged Critical with severity badges and confidence.",
+  },
+  {
+    src: "/images/pavescan/dashboard-map.png",
+    alt: "Streamlit Folium map plotting GPS-tagged inspection markers near the University of Toronto",
+    caption:
+      "Map — Folium GPS pins coloured by severity, plotted near U of T.",
+  },
+  {
+    src: "/images/pavescan/dashboard-report.png",
+    alt: "Streamlit report page with PCI score 67 / Fair, class breakdown, and downloadable PDF",
+    caption:
+      "Report — final PCI score (67 / Fair) with class breakdown and downloadable PDF.",
+  },
 ];
 
 const charts = [
@@ -187,6 +215,37 @@ export default function PaveScanPage() {
 
       <section className="mb-16 sm:mb-20">
         <h2 className="font-[family-name:var(--font-fraunces)] text-3xl font-medium tracking-tight mb-5">
+          Dashboard tour
+        </h2>
+        <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl mb-8">
+          Four pages, one upload-to-PCI flow. Real model output from a sample
+          of four pavement crack images.
+        </p>
+        <div className="grid gap-5 sm:grid-cols-2">
+          {dashboardTour.map((page) => (
+            <figure
+              key={page.src}
+              className="rounded-lg border border-border/60 bg-card/30 overflow-hidden"
+            >
+              <div className="relative aspect-[16/10] w-full bg-secondary">
+                <Image
+                  src={page.src}
+                  alt={page.alt}
+                  fill
+                  sizes="(min-width: 640px) 480px, 100vw"
+                  className="object-cover object-top"
+                />
+              </div>
+              <figcaption className="px-4 py-3 text-sm text-foreground/80 leading-relaxed">
+                {page.caption}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <section className="mb-16 sm:mb-20">
+        <h2 className="font-[family-name:var(--font-fraunces)] text-3xl font-medium tracking-tight mb-5">
           Tech stack
         </h2>
         <div className="flex flex-wrap gap-2">
@@ -219,7 +278,7 @@ export default function PaveScanPage() {
             </figure>
           ))}
         </div>
-        <div className="rounded-lg border border-border/50 bg-card/40 p-6">
+        <div className="rounded-lg border border-border/50 border-l-4 border-l-primary/70 bg-card/40 p-6">
           <p className="text-base sm:text-lg flex flex-wrap items-baseline gap-x-3 gap-y-1">
             <span className="font-[family-name:var(--font-fraunces)] text-2xl sm:text-3xl font-medium">
               Box mAP50 0.816
@@ -282,7 +341,7 @@ export default function PaveScanPage() {
             with aggressive augmentation and focal loss to push recall on the
             harder defect classes. Around sixty epochs in, training loss kept
             trending down on paper, but validation mAP went flat and{" "}
-            <code className="rounded bg-muted px-1 py-0.5 text-[0.9em]">best.pt</code>{" "}
+            <code className="rounded border border-primary/20 bg-primary/10 px-1.5 py-0.5 text-[0.9em] text-primary/90">best.pt</code>{" "}
             stopped improving — well before any reasonable convergence point.
           </p>
           <p>
@@ -299,12 +358,12 @@ export default function PaveScanPage() {
           <p>
             I caught it when I tried to warm-start the next run from the
             saved checkpoint to save time. Even with{" "}
-            <code className="rounded bg-muted px-1 py-0.5 text-[0.9em]">amp=False</code>{" "}
+            <code className="rounded border border-primary/20 bg-primary/10 px-1.5 py-0.5 text-[0.9em] text-primary/90">amp=False</code>{" "}
             set explicitly, the run produced NaN losses on the first batch —
             not a training problem, just the corrupted EMA buffers loading
             back in. The fix: drop the bad checkpoint, load a clean
             Ultralytics-pretrained YOLO11l weight, set{" "}
-            <code className="rounded bg-muted px-1 py-0.5 text-[0.9em]">amp=False</code>{" "}
+            <code className="rounded border border-primary/20 bg-primary/10 px-1.5 py-0.5 text-[0.9em] text-primary/90">amp=False</code>{" "}
             from the start, and write off the corrupted run as an
             unrecoverable cost.
           </p>

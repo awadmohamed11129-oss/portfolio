@@ -265,11 +265,11 @@ export default function PopUpChapelPage() {
         </p>
         <ul className="space-y-3 text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl list-disc pl-6 marker:text-muted-foreground">
           <li>
-            <code className="rounded bg-muted px-1 py-0.5 text-[0.9em]">
+            <code className="rounded border border-primary/20 bg-primary/10 px-1.5 py-0.5 text-[0.9em] text-primary/90">
               GET /api/days
             </code>{" "}
             and{" "}
-            <code className="rounded bg-muted px-1 py-0.5 text-[0.9em]">
+            <code className="rounded border border-primary/20 bg-primary/10 px-1.5 py-0.5 text-[0.9em] text-primary/90">
               GET /api/generate?date=YYYY-MM-DD
             </code>{" "}
             return the current ZIP for any event date in roughly two seconds.
@@ -285,7 +285,7 @@ export default function PopUpChapelPage() {
           </li>
           <li>
             Twelve-phase intake form at{" "}
-            <code className="rounded bg-muted px-1 py-0.5 text-[0.9em]">
+            <code className="rounded border border-primary/20 bg-primary/10 px-1.5 py-0.5 text-[0.9em] text-primary/90">
               /add-event
             </code>{" "}
             now in active build — phases one through four are live, the
@@ -375,7 +375,7 @@ export default function PopUpChapelPage() {
               href={d.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-lg border border-border/50 bg-card/30 p-5 hover:border-foreground/40 hover:bg-card/50 transition-colors"
+              className="group rounded-lg border border-border/50 bg-card/30 p-5 hover:border-primary/40 hover:bg-card/50 transition-colors"
             >
               <div className="flex items-start justify-between gap-3 mb-2">
                 <div className="font-medium text-base">{d.title}</div>
@@ -395,7 +395,7 @@ export default function PopUpChapelPage() {
         </h2>
         <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
           The intake form at{" "}
-          <code className="rounded bg-muted px-1 py-0.5 text-[0.9em]">
+          <code className="rounded border border-primary/20 bg-primary/10 px-1.5 py-0.5 text-[0.9em] text-primary/90">
             /add-event
           </code>{" "}
           continues through phases five to twelve over the summer. The nine

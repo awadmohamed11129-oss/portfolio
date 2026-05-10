@@ -53,7 +53,7 @@ export function ContactStrip() {
               {...(external
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}
-              className="group flex items-center gap-4 rounded-lg border border-border/60 bg-card/30 px-5 py-4 transition-colors hover:border-border hover:bg-card/60"
+              className="group flex items-center gap-4 rounded-lg border border-border/60 bg-card/30 px-5 py-4 transition-colors hover:border-primary/40 hover:bg-card/60"
             >
               <Icon className="h-5 w-5 text-muted-foreground group-hover:text-foreground transition-colors" />
               <div className="flex flex-col">
