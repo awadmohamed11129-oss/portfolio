@@ -6,16 +6,17 @@ import { GithubIcon, LinkedinIcon } from "@/components/BrandIcons";
 
 export function Hero() {
   return (
-    <section className="mx-auto max-w-5xl px-6 pt-16 pb-20 sm:pt-24 sm:pb-28">
+    <section className="mx-auto max-w-5xl px-6 pt-20 pb-24 sm:pt-28 sm:pb-32">
       <div className="grid gap-12 sm:gap-16 sm:grid-cols-[1fr_auto] items-center">
         <div>
-          <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">
+          <p className="text-xs uppercase tracking-[0.22em] text-primary/80 mb-5 font-medium">
+            <span className="inline-block w-8 h-px bg-primary/60 align-middle mr-3" />
             Toronto, ON · Civil engineering · TMU
           </p>
-          <h1 className="font-[family-name:var(--font-fraunces)] text-5xl sm:text-6xl font-medium leading-[1.05] tracking-tight">
-            Mohamad Awad
+          <h1 className="font-[family-name:var(--font-fraunces)] text-6xl sm:text-7xl lg:text-[5rem] font-medium leading-[1.02] tracking-tight">
+            Mohamad <span className="italic text-primary">Awad</span>
           </h1>
-          <p className="mt-5 text-lg sm:text-xl text-muted-foreground max-w-xl leading-relaxed">
+          <p className="mt-6 text-lg sm:text-xl text-foreground/75 max-w-xl leading-relaxed">
             Civil engineering at Toronto Metropolitan University. I build AI
             and automation tools for inspecting roads, bridges, and pavement.
           </p>
@@ -56,15 +57,21 @@ export function Hero() {
             </a>
           </div>
         </div>
-        <Image
-          src="/images/headshot.jpg"
-          alt="Mohamad Awad"
-          width={224}
-          height={224}
-          priority
-          sizes="(min-width: 1024px) 224px, 192px"
-          className="hidden sm:block h-48 w-48 lg:h-56 lg:w-56 shrink-0 rounded-full border border-border/60 object-cover"
-        />
+        <div className="hidden sm:block relative shrink-0">
+          <div
+            aria-hidden="true"
+            className="absolute -inset-2 rounded-full bg-primary/15 blur-2xl"
+          />
+          <Image
+            src="/images/headshot.jpg"
+            alt="Mohamad Awad"
+            width={224}
+            height={224}
+            priority
+            sizes="(min-width: 1024px) 224px, 192px"
+            className="relative h-48 w-48 lg:h-56 lg:w-56 rounded-full object-cover ring-1 ring-primary/30 ring-offset-4 ring-offset-background"
+          />
+        </div>
       </div>
     </section>
   );
