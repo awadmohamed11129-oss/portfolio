@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Download, FileText } from "lucide-react";
+import { ArrowLeft, ArrowRight, Download, ExternalLink, FileText } from "lucide-react";
 import { GithubIcon } from "@/components/BrandIcons";
 import { buttonVariants } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -90,10 +90,19 @@ export default function PaveScanPage() {
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <a
-            href="https://github.com/awadmohamed11129-oss/pavescan-ai"
+            href="https://pavescan-ai-kctjew6jj8tccs79an5dcd.streamlit.app/"
             target="_blank"
             rel="noopener noreferrer"
             className={buttonVariants({ size: "lg" })}
+          >
+            <ExternalLink className="mr-1.5 h-4 w-4" />
+            View live demo
+          </a>
+          <a
+            href="https://github.com/awadmohamed11129-oss/pavescan-ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={buttonVariants({ size: "lg", variant: "outline" })}
           >
             <GithubIcon className="mr-1.5 h-4 w-4" />
             View source on GitHub
@@ -108,6 +117,9 @@ export default function PaveScanPage() {
             Download sample report
           </a>
         </div>
+        <p className="mt-3 text-xs text-muted-foreground max-w-2xl">
+          Streamlit Community Cloud free tier: one-time Google or GitHub sign-in.
+        </p>
         <figure className="mt-12">
           <img
             src="/images/pavescan/val_batch0_pred.jpg"
