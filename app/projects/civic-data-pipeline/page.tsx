@@ -7,12 +7,12 @@ import { Badge } from "@/components/ui/badge";
 export const metadata: Metadata = {
   title: "Civic Data Pipeline",
   description:
-    "Production ETL for a Toronto smart-city startup: six City of Toronto mobility datasets engineered end to end, plus a 311 signal engine behind a live municipal demo. 800+ tests passing.",
+    "Production ETL over Toronto open data: six City of Toronto mobility datasets engineered end to end, plus a signal engine over eight years of 311 service requests. 800+ tests passing.",
   twitter: {
     card: "summary_large_image",
     title: "Civic Data Pipeline — Mohamad Awad",
     description:
-      "Production ETL over Toronto open data: six mobility ingestors plus a 311 signal engine behind a live municipal demo. 800+ tests passing.",
+      "Production ETL over Toronto open data: six mobility ingestors plus a signal engine over eight years of 311 service requests. 800+ tests passing.",
   },
 };
 
@@ -84,9 +84,9 @@ export default function CivicDataPipelinePage() {
         </h1>
         <p className="mt-5 text-lg sm:text-xl text-muted-foreground max-w-2xl leading-relaxed">
           Production ETL for a Toronto smart-city startup: six City of Toronto
-          mobility datasets engineered end to end, plus a signal engine over
-          eight years of 311 data that fed a live demo for a municipal
-          government stakeholder.
+          mobility datasets engineered end to end, plus a signal engine that
+          turns eight years of Toronto 311 service requests into signals a
+          non-technical reader can act on.
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <a
@@ -121,8 +121,9 @@ export default function CivicDataPipelinePage() {
               Toronto open datasets flow through pull and audit, then
               normalization into events and measures, then load into Postgres
               with contract tests. A separate branch takes eight years of 311
-              data through a signal engine into JSON signal bundles that power
-              a municipal demo.
+              data through a signal engine into JSON signal bundles with
+              documented contracts, surfacing trends, hotspots, and early
+              warnings.
             </desc>
             <defs>
               <marker
@@ -160,8 +161,8 @@ export default function CivicDataPipelinePage() {
               <text x="440" y="289" fontWeight="600">Signal engine</text>
               <text x="755" y="279">JSON signal bundles</text>
               <text x="755" y="299" opacity="0.6">documented contracts</text>
-              <text x="1075" y="279">Municipal demo</text>
-              <text x="1075" y="299" opacity="0.6">story layer</text>
+              <text x="1075" y="279">Readable signals</text>
+              <text x="1075" y="299" opacity="0.6">trends · hotspots · warnings</text>
             </g>
             <g fill="none" stroke="currentColor" strokeWidth="1.5" markerEnd="url(#civic-arrow)">
               <path d="M250 95 L330 95" />
@@ -181,22 +182,21 @@ export default function CivicDataPipelinePage() {
         </h2>
         <div className="space-y-5 text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
           <p>
-            The startup builds a civic-intelligence platform that turns city
-            signals into something decision-makers can read. Its pipeline
-            models the world as events and measures: an event is what
-            happened, where and when; a measure is how much, in what unit,
-            with what confidence. My job was to take Toronto&apos;s open
-            mobility data, which is messy in every way real data is messy,
-            and normalize it into that shape without breaking anyone
-            else&apos;s work.
+            What the client builds, and how, is theirs; it stays behind the
+            confidentiality agreement and off this page. My lane was
+            Toronto&apos;s open mobility data, which is messy in every way
+            real data is messy. The job was to normalize it into clean,
+            well-typed events and measures, an event being what happened,
+            where and when, a measure being how much and in what unit,
+            without breaking anyone else&apos;s work.
           </p>
           <p>
-            The working rules were strict, and they shaped everything: touch
-            only my own files, keep every change to the one shared config
-            append-only, and put every line through review by the
-            team&apos;s senior data engineer. Across the whole placement I
-            shipped about 9,400 lines in three pull requests and changed zero
-            lines of anyone else&apos;s code.
+            The working rules I set for myself were strict, and they shaped
+            everything: touch only my own files, keep every change to shared
+            configuration append-only, and put every line through senior code
+            review. Across the whole placement I wrote about 9,400 lines in
+            three pull requests and changed zero lines of anyone else&apos;s
+            code.
           </p>
         </div>
       </section>
@@ -230,7 +230,7 @@ export default function CivicDataPipelinePage() {
         <p className="mt-8 text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
           One structural decision came out of review: cameras carry no real
           timestamp, so forcing them into the event stream would have been a
-          lie. I designed the repo&apos;s first reference-table pattern
+          lie. I designed a reference-table pattern
           instead, and derived each camera&apos;s ward with a
           standard-library ray-casting point-in-polygon lookup against the
           city&apos;s 25-ward boundary file. Cross-validated against shapely
@@ -266,31 +266,27 @@ export default function CivicDataPipelinePage() {
         </h2>
         <div className="space-y-5 text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
           <p>
-            Mid-placement, priorities shifted to a live demo for a municipal
-            government stakeholder, and I got the demo&apos;s data brain:
-            turn eight years of Toronto 311 service requests, about half a
-            million rows a year from 2018 through 2025, into signals a
-            non-technical audience can act on. I built it as a
-            self-contained, standard-library-only engine: rising complaint
-            categories against a multi-year baseline, drifting locations,
-            repeat-complaint clusters, early-warning flags, and the top
-            hotspot micro-areas with their growth and category breakdown.
-            Three JSON bundles out, each with a written data contract for the
-            engineer consuming them, and byte-identical output on every
-            rerun.
+            Mid-placement I took on the biggest piece of my work: turn eight
+            years of Toronto 311 service requests, about half a million rows
+            a year from 2018 through 2025, into signals a non-technical
+            audience can act on. I built it as a self-contained,
+            standard-library-only engine: rising complaint categories against
+            a multi-year baseline, drifting locations, repeat-complaint
+            clusters, early-warning flags, and the top hotspot micro-areas
+            with their growth and category breakdown. Three JSON bundles out,
+            each with a written data contract for the engineer consuming
+            them, and byte-identical output on every rerun.
           </p>
           <p>
-            The part I&apos;m proudest of: I validated the engine against the
-            stakeholder deck&apos;s numbers and matched them to
-            near-exactness from raw public data, including a hotspot ranking
-            whose order looks wrong until you check it. Then the engine found
-            two real problems the deck missed. A city division had been
-            renamed across years, which fabricated a fake &quot;new&quot;
-            complaint category; mapped historically, the true signal was a
-            10.6% rise. And a COVID-era gap of zero-count months was
-            inflating one category&apos;s growth from a real 32% to a
-            reported 85%. Both fixes shipped, and the corrected bundles now
-            power the demo&apos;s story layer.
+            The part I&apos;m proudest of came from validating my own outputs
+            against the raw public data, including a hotspot ranking whose
+            order looks wrong until you check it. That validation surfaced
+            two artifacts that would have skewed the story. A city division
+            had been renamed across years, which fabricated a fake
+            &quot;new&quot; complaint category; mapped historically, the true
+            signal was a 10.6% rise. And a COVID-era gap of zero-count months
+            was inflating one category&apos;s growth from a real 32% to a
+            reported 85%. Both fixes shipped in the final bundles.
           </p>
         </div>
       </section>
@@ -362,12 +358,11 @@ export default function CivicDataPipelinePage() {
           Where it stands
         </h2>
         <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
-          The placement wrapped in early July 2026. The three pull requests
-          are open and verified, waiting on senior review; merge timing is
-          the team&apos;s call, not mine. The demo-side deliverables were
-          approved and handed to the integration engineer, and I was invited
-          onto the presentation team for the stakeholder demo. Two further
-          waste-collection datasets were scoped and deferred by the client.
+          The placement wrapped in early July 2026, with everything I built
+          delivered and handed off. What the client does with it from here is
+          their story to tell, not mine. What I keep is the craft: seven
+          public datasets engineered end to end, a signal engine I can defend
+          line by line, and 800+ tests proving the work holds.
         </p>
       </section>
 

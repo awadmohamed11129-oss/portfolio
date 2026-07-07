@@ -16,7 +16,7 @@ const roles: Role[] = [
     dates: "May – Jul 2026",
     bullets: [
       "Built production ETL ingestors for six City of Toronto open mobility datasets, from traffic counts going back to 1993 to roughly 7 million bike-share trips a year, opened as three pull requests totalling about 9,400 lines.",
-      "Wrote a signal engine over eight years of Toronto 311 data that surfaces rising complaint categories and hotspot zones, used in a live demo for a municipal government stakeholder.",
+      "Wrote a signal engine over eight years of Toronto 311 data that surfaces rising complaint categories, hotspot zones, and early-warning trends, delivered as JSON bundles with documented data contracts.",
       "Shipped every dataset with contract tests and documentation: 800+ tests passing across the work, zero lines of teammates' code modified.",
     ],
   },
