@@ -419,6 +419,26 @@ export default function PopUpChapelPage() {
         </p>
       </section>
 
+      <section className="mb-16 sm:mb-20">
+        <h2 className="font-[family-name:var(--font-fraunces)] text-3xl font-medium tracking-tight mb-5">
+          What the CEO said
+        </h2>
+        <figure className="rounded-lg border border-border/50 border-l-4 border-l-primary/60 bg-card/30 p-6">
+          <blockquote className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
+            &ldquo;Working with Mohamad was a great experience. Throughout the
+            project, he consistently demonstrated professionalism, strong
+            communication skills, and a thoughtful approach to collaboration.
+            He stayed engaged in discussions, contributed meaningful ideas,
+            and approached challenges with a positive, solutions-focused
+            mindset.&rdquo;
+          </blockquote>
+          <figcaption className="mt-4 text-sm text-muted-foreground">
+            Alicia Thurston, CEO, The Pop-Up Chapel Co. Rated 5.0 / 5 in the
+            project&apos;s final review.
+          </figcaption>
+        </figure>
+      </section>
+
       <section className="border-t border-border/40 pt-10 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
         <Link
           href="/"

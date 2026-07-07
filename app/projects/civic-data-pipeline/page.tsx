@@ -353,6 +353,27 @@ export default function CivicDataPipelinePage() {
 
       <section className="mb-16 sm:mb-20">
         <h2 className="font-[family-name:var(--font-fraunces)] text-3xl font-medium tracking-tight mb-5">
+          The review that came back
+        </h2>
+        <figure className="rounded-lg border border-border/50 border-l-4 border-l-primary/60 bg-card/30 p-6">
+          <blockquote className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
+            &ldquo;He demonstrated strong initiative and self-direction.
+            Mohamad consistently took ownership of his tasks without needing
+            excessive guidance. In an early-stage environment where ambiguity
+            is normal, he showed the ability to: interpret requirements
+            correctly, ask clarifying questions only when necessary, move
+            work forward independently. This is a rare trait in student
+            contributors and extremely valuable in a startup context.&rdquo;
+          </blockquote>
+          <figcaption className="mt-4 text-sm text-muted-foreground">
+            Founder and CEO of the client company, in the placement&apos;s
+            final review. Rated 5.0 / 5 across every category.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section className="mb-16 sm:mb-20">
+        <h2 className="font-[family-name:var(--font-fraunces)] text-3xl font-medium tracking-tight mb-5">
           Where it stands
         </h2>
         <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
