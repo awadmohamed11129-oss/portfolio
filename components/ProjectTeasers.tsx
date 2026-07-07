@@ -21,7 +21,7 @@ const teasers: Teaser[] = [
     chips: ["YOLO11", "Python", "Streamlit", "Folium"],
     href: "/projects/pavescan-ai",
     image: {
-      src: "/images/pavescan/val_batch0_pred.jpg",
+      src: "/images/pavescan/val_batch0_pred.webp",
       alt: "Grid of pavement images with YOLO11 crack-segmentation overlays",
     },
   },
@@ -61,10 +61,45 @@ const teasers: Teaser[] = [
 function ProjectImage({ image }: { image: Teaser["image"] }) {
   if (!image) {
     return (
-      <div className="aspect-[16/10] w-full rounded-md bg-gradient-to-br from-secondary to-accent flex items-center justify-center border border-border/40">
-        <span className="font-[family-name:var(--font-fraunces)] italic text-4xl text-primary/50">
-          ED
-        </span>
+      <div className="aspect-[16/10] w-full rounded-md bg-secondary border border-border/40 overflow-hidden">
+        <svg
+          viewBox="0 0 640 400"
+          role="img"
+          aria-label="Drafting-style line drawing of the mobile storage cart design"
+          className="h-full w-full"
+        >
+          {/* drafting grid */}
+          <g stroke="currentColor" strokeWidth="1" className="text-border/50">
+            {Array.from({ length: 15 }, (_, i) => (
+              <line key={`v${i}`} x1={40 + i * 40} y1="0" x2={40 + i * 40} y2="400" />
+            ))}
+            {Array.from({ length: 9 }, (_, i) => (
+              <line key={`h${i}`} x1="0" y1={40 + i * 40} x2="640" y2={40 + i * 40} />
+            ))}
+          </g>
+          {/* cart line drawing */}
+          <g
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinejoin="round"
+            className="text-foreground/70"
+          >
+            <rect x="200" y="150" width="240" height="130" rx="6" />
+            <line x1="200" y1="215" x2="440" y2="215" />
+            <path d="M440 160 L490 110 L510 110" strokeLinecap="round" />
+            <circle cx="250" cy="305" r="24" />
+            <circle cx="390" cy="305" r="24" />
+            <circle cx="250" cy="305" r="4" fill="currentColor" stroke="none" />
+            <circle cx="390" cy="305" r="4" fill="currentColor" stroke="none" />
+          </g>
+          {/* dimension line, terracotta */}
+          <g stroke="currentColor" strokeWidth="1.5" className="text-primary/80">
+            <line x1="200" y1="112" x2="440" y2="112" />
+            <line x1="200" y1="104" x2="200" y2="120" />
+            <line x1="440" y1="104" x2="440" y2="120" />
+          </g>
+        </svg>
       </div>
     );
   }

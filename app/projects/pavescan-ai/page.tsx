@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -25,7 +24,7 @@ const techStack = [
 
 const dashboardTour = [
   {
-    src: "/images/pavescan/dashboard-upload.png",
+    src: "/images/pavescan/dashboard-upload.webp",
     alt: "Streamlit upload page with four sample crack images shown as thumbnails",
     caption:
       "Upload — drag-and-drop the four sample crack images; thumbnails confirm what's about to be scored.",
@@ -37,7 +36,7 @@ const dashboardTour = [
       "Detection — six defects across four images, four flagged Critical with severity badges and confidence.",
   },
   {
-    src: "/images/pavescan/dashboard-map.png",
+    src: "/images/pavescan/dashboard-map.webp",
     alt: "Streamlit Folium map plotting GPS-tagged inspection markers near the University of Toronto",
     caption:
       "Map — Folium GPS pins coloured by severity, plotted near U of T.",
@@ -52,24 +51,32 @@ const dashboardTour = [
 
 const charts = [
   {
-    src: "/images/pavescan/results.png",
+    src: "/images/pavescan/results.webp",
     alt: "Training and validation loss plus mAP curves over 200 epochs",
     caption: "Loss and mAP curves, 200 epochs",
+    width: 1600,
+    height: 480,
   },
   {
     src: "/images/pavescan/confusion_matrix.png",
     alt: "Segmentation confusion matrix across pavement-defect classes",
     caption: "Class confusion matrix",
+    width: 3000,
+    height: 2250,
   },
   {
     src: "/images/pavescan/BoxPR_curve.png",
     alt: "Box detection precision-recall curve",
     caption: "Box detection precision-recall",
+    width: 2250,
+    height: 1500,
   },
   {
     src: "/images/pavescan/MaskPR_curve.png",
     alt: "Mask segmentation precision-recall curve",
     caption: "Mask segmentation precision-recall",
+    width: 2250,
+    height: 1500,
   },
 ];
 
@@ -121,10 +128,13 @@ export default function PaveScanPage() {
           Streamlit Community Cloud free tier: one-time Google or GitHub sign-in.
         </p>
         <figure className="mt-12">
-          <img
-            src="/images/pavescan/val_batch0_pred.jpg"
+          <Image
+            src="/images/pavescan/val_batch0_pred.webp"
             alt="Validation-batch grid showing model-predicted instance masks on held-out pavement photos"
-            className="w-full rounded-lg border border-border/50"
+            width={1200}
+            height={1200}
+            sizes="(min-width: 1024px) 976px, 100vw"
+            className="w-full h-auto rounded-lg border border-border/50"
           />
           <figcaption className="mt-3 text-sm text-muted-foreground">
             Validation predictions on a held-out set, V2 fine-tune. YOLO11l
@@ -285,7 +295,14 @@ export default function PaveScanPage() {
               key={c.src}
               className="rounded-lg border border-border/50 bg-card/30 p-3"
             >
-              <img src={c.src} alt={c.alt} className="w-full rounded-md" />
+              <Image
+                src={c.src}
+                alt={c.alt}
+                width={c.width}
+                height={c.height}
+                sizes="(min-width: 640px) 480px, 100vw"
+                className="w-full h-auto rounded-md"
+              />
               <figcaption className="mt-2 text-xs text-muted-foreground text-center">
                 {c.caption}
               </figcaption>
@@ -316,20 +333,26 @@ export default function PaveScanPage() {
         </h2>
         <div className="grid gap-5 sm:grid-cols-2">
           <figure className="rounded-lg border border-border/50 bg-card/30 p-3">
-            <img
-              src="/images/pavescan/val_batch0_labels.jpg"
+            <Image
+              src="/images/pavescan/val_batch0_labels.webp"
               alt="Ground-truth defect labels for the validation batch"
-              className="w-full rounded-md"
+              width={1200}
+              height={1200}
+              sizes="(min-width: 640px) 480px, 100vw"
+              className="w-full h-auto rounded-md"
             />
             <figcaption className="mt-2 text-xs text-muted-foreground text-center">
               Ground-truth labels
             </figcaption>
           </figure>
           <figure className="rounded-lg border border-border/50 bg-card/30 p-3">
-            <img
-              src="/images/pavescan/val_batch0_pred.jpg"
+            <Image
+              src="/images/pavescan/val_batch0_pred.webp"
               alt="Model-predicted defect masks on the same validation batch"
-              className="w-full rounded-md"
+              width={1200}
+              height={1200}
+              sizes="(min-width: 640px) 480px, 100vw"
+              className="w-full h-auto rounded-md"
             />
             <figcaption className="mt-2 text-xs text-muted-foreground text-center">
               Model predictions

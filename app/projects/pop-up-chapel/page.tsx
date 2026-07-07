@@ -1,5 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Download, ExternalLink } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
@@ -110,10 +110,13 @@ export default function PopUpChapelPage() {
           </a>
         </div>
         <figure className="mt-12">
-          <img
+          <Image
             src="/images/popup-chapel/live-site-home.png"
             alt="The Pop-Up Chapel companion tool on Vercel — home view of the booking-driven day-of document generator"
-            className="w-full rounded-lg border border-border/50"
+            width={1425}
+            height={944}
+            sizes="(min-width: 1024px) 976px, 100vw"
+            className="w-full h-auto rounded-lg border border-border/50"
           />
           <figcaption className="mt-3 text-sm text-muted-foreground">
             The live companion tool on Vercel — pulls bookings from a Google
