@@ -30,6 +30,20 @@ export function About() {
           PDF report.
         </p>
         <p>
+          This summer I finished a data engineering placement with a Toronto
+          smart-city startup, where I{" "}
+          <Link
+            href="/projects/civic-data-pipeline"
+            className="underline decoration-border underline-offset-4 hover:decoration-primary transition-colors"
+          >
+            built production ETL ingestors
+          </Link>{" "}
+          for six City of Toronto mobility datasets and a signal engine over
+          eight years of 311 service-request data. That work shipped with
+          800+ passing tests and changed zero lines of anyone else&apos;s
+          code.
+        </p>
+        <p>
           I also led the email-automation and document-generation workstream
           on a{" "}
           <Link
@@ -43,8 +57,11 @@ export function About() {
           documents, plus a live Next.js companion tool on Vercel.
         </p>
         <p>
-          I&apos;m looking for civil engineering co-op placements where
-          automation depth is an asset, not a side project.
+          All of this work comes down to the same thing: a process that used
+          to take a person hours of manual, repetitive work now runs in
+          seconds. That&apos;s what I want to bring to a civil engineering
+          co-op — turning inspection reports, spreadsheets, and paperwork
+          into something that runs itself.
         </p>
       </div>
     </section>

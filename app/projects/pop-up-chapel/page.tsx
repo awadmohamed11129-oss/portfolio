@@ -116,8 +116,9 @@ export default function PopUpChapelPage() {
             className="w-full rounded-lg border border-border/50"
           />
           <figcaption className="mt-3 text-sm text-muted-foreground">
-            The live companion tool on Vercel — Google Sheets API with
-            HMAC-signed cookie auth and Zod validation on every endpoint.
+            The live companion tool on Vercel — pulls bookings from a Google
+            Sheet and regenerates the document ZIP in the browser, with Zod
+            validation on every input.
           </figcaption>
         </figure>
       </section>
@@ -275,21 +276,27 @@ export default function PopUpChapelPage() {
             return the current ZIP for any event date in roughly two seconds.
           </li>
           <li>
-            HMAC-signed session cookie behind a password gate, Zod validation
-            on every input, all secrets held only in Vercel environment
-            variables — no client-side keys.
+            Zod validation on every input, with all secrets held only in
+            Vercel environment variables — no client-side keys.
           </li>
           <li>
             Shared Jinja2 templates and brand stylesheet with the Python
             prototype, so the web tool and the CLI produce identical output.
           </li>
           <li>
-            Twelve-phase intake form at{" "}
+            HMAC-signed cookie auth and a sliding-window rate limiter, written
+            and tested against the intake flow — the production environment
+            variables to switch them on weren&apos;t set before the
+            engagement&apos;s 60 hours closed.
+          </li>
+          <li>
+            A twelve-phase intake-form scaffold at{" "}
             <code className="rounded border border-primary/20 bg-primary/10 px-1.5 py-0.5 text-[0.9em] text-primary/90">
               /add-event
             </code>{" "}
-            now in active build — phases one through four are live, the
-            remaining phases are the next iteration.
+            — the first four phases exist as a wizard shell with no live form
+            fields yet. Event intake stayed manual through the Google Sheet
+            for the length of the engagement.
           </li>
         </ul>
       </section>
@@ -394,13 +401,12 @@ export default function PopUpChapelPage() {
           What&apos;s next
         </h2>
         <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
-          The intake form at{" "}
-          <code className="rounded border border-primary/20 bg-primary/10 px-1.5 py-0.5 text-[0.9em] text-primary/90">
-            /add-event
-          </code>{" "}
-          continues through phases five to twelve over the summer. The nine
-          missing touchpoints from the audit get wired into the email-delivery
-          layer as the platform team finishes the database work.
+          The engagement&apos;s 60 hours closed before the intake form moved
+          past a wizard shell and before the HMAC auth and rate-limiting layer
+          got switched on in production — the natural stopping point for a
+          fixed-scope student project. The nine missing touchpoints from the
+          audit are the highest-value next step, once the platform team&apos;s
+          database and multi-tenant work lands.
         </p>
       </section>
 

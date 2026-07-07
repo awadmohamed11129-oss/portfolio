@@ -18,7 +18,9 @@ export function Hero() {
           </h1>
           <p className="mt-6 text-lg sm:text-xl text-foreground/75 max-w-xl leading-relaxed">
             Civil engineering at Toronto Metropolitan University. I build AI
-            and automation tools for inspecting roads, bridges, and pavement.
+            and automation tools: computer vision that scores pavement
+            against ASTM D6433, and production data pipelines over
+            Toronto&apos;s civic open data.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-3">
             <Link

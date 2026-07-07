@@ -19,7 +19,7 @@ const techStack = [
   "Streamlit",
   "Folium",
   "ASTM D6433",
-  "Roboflow datasets",
+  "Crack-Seg dataset (Ultralytics)",
   "ReportLab",
 ];
 
@@ -155,12 +155,14 @@ export default function PaveScanPage() {
         </h2>
         <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl mb-8">
           PaveScan AI is a Python pipeline. A YOLO11 instance-segmentation
-          model, fine-tuned on labelled pavement-defect images, produces
-          per-defect class IDs and pixel masks. Those masks feed an ASTM D6433
-          scoring routine that returns a PCI value plus per-defect deduct
-          values. A Streamlit dashboard wraps the upload-to-report flow, a
-          Folium map plots GPS-tagged inspections, and a ReportLab module
-          generates the printable PDF you can download above.
+          model, fine-tuned on the Ultralytics Crack-Seg dataset — 4,029
+          labelled pavement-crack images split 3,717 train / 200 validation /
+          112 test, single &quot;crack&quot; class — produces per-defect class
+          IDs and pixel masks. Those masks feed an ASTM D6433 scoring routine
+          that returns a PCI value plus per-defect deduct values. A Streamlit
+          dashboard wraps the upload-to-report flow, a Folium map plots
+          GPS-tagged inspections, and a ReportLab module generates the
+          printable PDF you can download above.
         </p>
         <div className="rounded-lg border border-border/50 bg-card/30 p-4 sm:p-6 overflow-x-auto">
           <svg
