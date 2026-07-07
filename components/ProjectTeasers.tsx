@@ -29,7 +29,7 @@ const teasers: Teaser[] = [
     title: "Civic Data Pipeline",
     context: "Work placement · Toronto smart-city startup · May–Jul 2026",
     blurb:
-      "Production ETL for six City of Toronto mobility datasets plus a signal engine over eight years of 311 data. 800+ tests passing, zero teammate code touched.",
+      "Production ETL for six City of Toronto mobility datasets plus a signal engine over eight years of 311 data. Over 4 million rows processed, 800+ tests passing.",
     chips: ["Python", "PostgreSQL", "ETL", "pytest"],
     href: "/projects/civic-data-pipeline",
     image: {

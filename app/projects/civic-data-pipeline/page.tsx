@@ -33,7 +33,7 @@ const datasets = [
   },
   {
     name: "Traffic Cameras",
-    note: "Not events at all: no real timestamp. They became the repo's first reference-table pattern, with a regression test asserting cameras can never leak into the event stream.",
+    note: "Not events at all: no real timestamp. They became a reference table instead, with a regression test asserting cameras can never leak into the event stream.",
   },
   {
     name: "Traffic Volumes",
@@ -186,17 +186,15 @@ export default function CivicDataPipelinePage() {
             confidentiality agreement and off this page. My lane was
             Toronto&apos;s open mobility data, which is messy in every way
             real data is messy. The job was to normalize it into clean,
-            well-typed events and measures, an event being what happened,
-            where and when, a measure being how much and in what unit,
-            without breaking anyone else&apos;s work.
+            well-typed events and measures. An event is what happened, where
+            and when. A measure is how much, and in what unit.
           </p>
           <p>
-            The working rules I set for myself were strict, and they shaped
-            everything: touch only my own files, keep every change to shared
-            configuration append-only, and put every line through senior code
-            review. Across the whole placement I wrote about 9,400 lines in
-            three pull requests and changed zero lines of anyone else&apos;s
-            code.
+            I was the newest person in a shared production codebase, so I
+            worked carefully. Everything I wrote went through code review
+            before it landed, and my changes to shared configuration only
+            ever added lines. By the end of the placement I had written about
+            9,400 lines across three pull requests.
           </p>
         </div>
       </section>
@@ -321,17 +319,17 @@ export default function CivicDataPipelinePage() {
             </div>
             <div>
               <dt className="text-sm text-muted-foreground">
-                Teammates&apos; lines changed
+                Rows of public data
               </dt>
               <dd className="mt-1 font-[family-name:var(--font-fraunces)] text-3xl font-medium">
-                0
+                4M+
               </dd>
             </div>
           </dl>
           <p className="mt-5 text-sm text-muted-foreground max-w-2xl">
-            Over 4 million rows of public data processed. Every ingestor ships
-            with its own walkthrough doc, source contract, committed sample,
-            and contract-compliance tests, all black, flake8, and ruff clean.
+            Every ingestor ships with its own walkthrough doc, source
+            contract, committed sample, and contract-compliance tests, all
+            black, flake8, and ruff clean.
           </p>
         </div>
       </section>

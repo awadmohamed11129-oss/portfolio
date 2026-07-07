@@ -40,8 +40,7 @@ export function About() {
           </Link>{" "}
           for six City of Toronto mobility datasets and a signal engine over
           eight years of 311 service-request data. That work shipped with
-          800+ passing tests and changed zero lines of anyone else&apos;s
-          code.
+          800+ passing tests.
         </p>
         <p>
           I also led the email-automation and document-generation workstream
