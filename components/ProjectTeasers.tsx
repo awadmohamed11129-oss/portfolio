@@ -26,6 +26,18 @@ const teasers: Teaser[] = [
     },
   },
   {
+    title: "Civic Data Pipeline",
+    context: "Work placement · Toronto smart-city startup · May–Jul 2026",
+    blurb:
+      "Production ETL for six City of Toronto mobility datasets plus a signal engine over eight years of 311 data, behind a live demo for a municipal government stakeholder. 800+ tests passing, zero teammate code touched.",
+    chips: ["Python", "PostgreSQL", "ETL", "pytest"],
+    href: "/projects/civic-data-pipeline",
+    image: {
+      src: "/images/civic-data/teaser.svg",
+      alt: "Stylized chart of civic data signals rising over time",
+    },
+  },
+  {
     title: "Pop-Up Chapel Co.",
     context: "Riipen consulting engagement · 60 hrs · Apr–May 2026",
     blurb:
@@ -142,7 +154,7 @@ export function ProjectTeasers() {
           Selected projects
         </h2>
       </div>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2">
         {teasers.map((teaser) => (
           <Card key={teaser.title} teaser={teaser} />
         ))}

@@ -33,8 +33,11 @@ const groups: SkillGroup[] = [
     label: "Data & infrastructure",
     skills: [
       "PostgreSQL",
+      "psycopg2",
+      "ETL pipelines",
+      "pytest",
+      "CKAN open-data APIs",
       "Google Sheets API",
-      "Stripe webhooks",
       "Vercel",
       "GitHub",
       "Git",
