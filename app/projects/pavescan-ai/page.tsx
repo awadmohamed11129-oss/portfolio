@@ -10,6 +10,12 @@ export const metadata: Metadata = {
   title: "PaveScan AI",
   description:
     "YOLO11 instance segmentation plus ASTM D6433 PCI scoring for pavement inspection. Streamlit dashboard, Folium GPS map, and printable PDF reports from a single image upload.",
+  twitter: {
+    card: "summary_large_image",
+    title: "PaveScan AI — Mohamad Awad",
+    description:
+      "YOLO11 instance segmentation plus ASTM D6433 PCI scoring for pavement inspection, packaged as a live Streamlit dashboard.",
+  },
 };
 
 const techStack = [

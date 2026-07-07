@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Inter, Fraunces } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const inter = Inter({
@@ -29,6 +31,12 @@ export const metadata: Metadata = {
       "Civil engineering student at Toronto Metropolitan University, building AI and automation tools for infrastructure inspection.",
     type: "website",
     locale: "en_CA",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mohamad Awad — Civil Engineering & AI at TMU",
+    description:
+      "Civil engineering student at Toronto Metropolitan University, building AI and automation tools for infrastructure inspection.",
   },
   robots: { index: true, follow: true },
 };
@@ -99,6 +107,8 @@ export default function RootLayout({
           </nav>
         </header>
         <main>{children}</main>
+        <Analytics />
+        <SpeedInsights />
         <footer className="border-t border-border/40 mt-24">
           <div className="mx-auto max-w-5xl px-6 py-8 text-xs text-muted-foreground flex flex-col sm:flex-row gap-2 justify-between">
             <span>© {new Date().getFullYear()} Mohamad Awad</span>

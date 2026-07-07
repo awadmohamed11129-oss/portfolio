@@ -8,6 +8,12 @@ export const metadata: Metadata = {
   title: "Civic Data Pipeline",
   description:
     "Production ETL for a Toronto smart-city startup: six City of Toronto mobility datasets engineered end to end, plus a 311 signal engine behind a live municipal demo. 800+ tests passing.",
+  twitter: {
+    card: "summary_large_image",
+    title: "Civic Data Pipeline — Mohamad Awad",
+    description:
+      "Production ETL over Toronto open data: six mobility ingestors plus a 311 signal engine behind a live municipal demo. 800+ tests passing.",
+  },
 };
 
 const techStack = [

@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   title: "Pop-Up Chapel Co.",
   description:
     "60-hour Riipen consulting project for a Canadian micro-wedding company. Led the email-automation and document-generation workstream: a Python pipeline that turns one booking into eight branded wedding-day PDFs, plus a live Next.js companion tool on Vercel.",
+  twitter: {
+    card: "summary_large_image",
+    title: "Pop-Up Chapel Co. — Mohamad Awad",
+    description:
+      "Booking-to-documents automation: a Python pipeline that turns one booking into eight branded wedding-day PDFs, plus a live Next.js companion tool.",
+  },
 };
 
 const pythonStack = [
@@ -21,7 +27,7 @@ const pythonStack = [
 ];
 
 const nextStack = [
-  "Next.js 14",
+  "Next.js (App Router)",
   "TypeScript",
   "Tailwind CSS",
   "shadcn/ui",
