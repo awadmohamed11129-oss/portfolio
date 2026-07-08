@@ -369,7 +369,7 @@ export default function PaveScanPage() {
           The model still under-segments thin and branching cracks, and
           sometimes splits one defect into a few separate detections. The
           0.395 mask mAP50 is honest: this is a working detector, not a
-          finished segmenter, and the next training round should focus there.
+          finished segmenter.
         </p>
       </section>
 

@@ -279,8 +279,9 @@ export default function PopUpChapelPage() {
             prototype, so the web tool and the CLI produce identical output.
           </li>
           <li>
-            Cookie auth, rate limiting, and an intake-form scaffold were
-            written and tested but never switched on in production; the
+            Cookie auth and rate limiting were written and tested but never
+            switched on in production, and an intake form got no further
+            than a partial wizard shell with no live fields; the
             engagement&apos;s 60 hours closed first, and event intake stayed
             manual through the Google Sheet.
           </li>
