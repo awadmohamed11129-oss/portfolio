@@ -181,14 +181,9 @@ export function ProjectTeasers() {
       id="projects"
       className="mx-auto max-w-5xl px-6 py-20 sm:py-24 border-t border-border/40"
     >
-      <div className="flex items-baseline justify-between mb-10">
-        <h2 className="font-[family-name:var(--font-fraunces)] text-3xl sm:text-4xl font-medium tracking-tight">
-          <span className="text-muted-foreground/60 mr-3 text-sm uppercase tracking-[0.2em] font-sans">
-            §
-          </span>
-          Selected projects
-        </h2>
-      </div>
+      <h2 className="font-[family-name:var(--font-fraunces)] text-3xl sm:text-4xl font-medium tracking-tight mb-10">
+        Selected projects
+      </h2>
       <div className="grid gap-6 sm:grid-cols-2">
         {teasers.map((teaser) => (
           <Card key={teaser.title} teaser={teaser} />
