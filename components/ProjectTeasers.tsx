@@ -17,7 +17,7 @@ const teasers: Teaser[] = [
     title: "PaveScan AI",
     context: "Independent project · 2026",
     blurb:
-      "YOLO11 segmentation that scores pavement against the ASTM D6433 PCI standard, with a Streamlit dashboard, an interactive Folium GPS map, and a PDF report generator.",
+      "YOLO11 segmentation that scores pavement against the ASTM D6433 PCI standard, packaged as a Streamlit dashboard with GPS mapping and PDF reports.",
     chips: ["YOLO11", "Python", "Streamlit", "Folium"],
     href: "/projects/pavescan-ai",
     image: {
@@ -53,7 +53,7 @@ const teasers: Teaser[] = [
     title: "Engineering Design Project",
     context: "TMU course project · Feb–Mar 2025",
     blurb:
-      "Mobile storage cart for unhoused individuals plus a walking-cane prototype — designed for durability, weather resistance, and one-handed mobility.",
+      "Mobile storage cart for unhoused individuals plus a walking-cane prototype, designed for durability, weather resistance, and one-handed use.",
     chips: ["CAD", "Prototyping"],
   },
 ];

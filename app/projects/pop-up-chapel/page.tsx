@@ -41,7 +41,7 @@ const sampleDocs = [
   {
     title: "Couples Information Sheet",
     blurb:
-      "Single-page overview of the day handed to the couple — venue, timing, vendor contacts, and the run of show.",
+      "Single-page overview of the day handed to the couple: venue, timing, vendor contacts, and the run of show.",
     href: "/pdfs/popup-chapel-couples-info.pdf",
   },
   {
@@ -62,18 +62,6 @@ const sampleDocs = [
       "Sharing copy and tagging instructions sent after the event so the couple's posts read in the brand voice.",
     href: "/pdfs/popup-chapel-posting-guide.pdf",
   },
-];
-
-const missingTouchpoints = [
-  { id: "A1", label: "Post-inquiry nurture sequence for leads who don't immediately book" },
-  { id: "A2", label: "Booking confirmation email separate from any upsell" },
-  { id: "A3", label: "60-day and 30-day mid-planning check-ins" },
-  { id: "A4", label: "Morning-of email with coordinator contact and day-of details" },
-  { id: "A5", label: "Structured post-event referral ask" },
-  { id: "A6", label: "Photo-delivery timeline email that sets expectations" },
-  { id: "A7", label: "One-year anniversary touchpoint" },
-  { id: "A8", label: "Vendor introduction email" },
-  { id: "A9", label: "Date-change protocols" },
 ];
 
 const LIVE_TOOL_URL = "https://popup-chapel-docs.vercel.app";
@@ -118,16 +106,16 @@ export default function PopUpChapelPage() {
         <figure className="mt-12">
           <Image
             src="/images/popup-chapel/live-site-home.png"
-            alt="The Pop-Up Chapel companion tool on Vercel — home view of the booking-driven day-of document generator"
+            alt="The Pop-Up Chapel companion tool on Vercel: home view of the booking-driven day-of document generator"
             width={1425}
             height={944}
             sizes="(min-width: 1024px) 976px, 100vw"
             className="w-full h-auto rounded-lg border border-border/50"
           />
           <figcaption className="mt-3 text-sm text-muted-foreground">
-            The live companion tool on Vercel — pulls bookings from a Google
-            Sheet and regenerates the document ZIP in the browser, with Zod
-            validation on every input.
+            The live companion tool on Vercel. It pulls bookings from a
+            Google Sheet and regenerates the document ZIP in the browser,
+            with Zod validation on every input.
           </figcaption>
         </figure>
       </section>
@@ -142,10 +130,9 @@ export default function PopUpChapelPage() {
           on a 60-hour consulting project to map the company&apos;s
           communication systems and prototype the automations that would save
           the most time. I led the email-automation and document-generation
-          workstream. Another teammate handled the underlying database and
-          platform architecture, and a third handled lead routing and intake.
-          April 3 – May 8, 2026, on a $1,400 stipend through the program —
-          student consulting work, not senior agency work.
+          workstream; my two teammates covered platform architecture and lead
+          intake. April 3 – May 8, 2026, on a $1,400 stipend. Student
+          consulting work, not senior agency work.
         </p>
       </section>
 
@@ -176,9 +163,9 @@ export default function PopUpChapelPage() {
         </p>
         <ul className="space-y-3 text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl list-disc pl-6 marker:text-muted-foreground">
           <li>
-            Pydantic schema layer that maps one-to-one to the future Postgres
-            columns the platform team is designing — same field names, same
-            constraints, no translation layer when it lands.
+            Pydantic schema layer that maps one-to-one to the Postgres
+            columns the platform team is designing, so nothing needs a
+            translation layer when it lands.
           </li>
           <li>
             Anthropic SDK integration with prompt caching and a deterministic
@@ -192,7 +179,7 @@ export default function PopUpChapelPage() {
           </li>
           <li>
             Headless Playwright render that turns each Jinja2 page into a
-            print-quality PDF — eight documents per booking from one JSON
+            print-quality PDF: eight documents per booking from one JSON
             input.
           </li>
         </ul>
@@ -256,9 +243,8 @@ export default function PopUpChapelPage() {
             </g>
           </svg>
           <p className="mt-4 text-sm text-muted-foreground max-w-3xl">
-            The pipeline I personally built. The broader platform
-            architecture — database design, lead routing, billing — sat
-            with other workstreams on the same engagement.
+            The pipeline I personally built. Database design, lead routing,
+            and billing sat with other workstreams on the same engagement.
           </p>
         </div>
       </section>
@@ -286,26 +272,17 @@ export default function PopUpChapelPage() {
           </li>
           <li>
             Zod validation on every input, with all secrets held only in
-            Vercel environment variables — no client-side keys.
+            Vercel environment variables, no client-side keys.
           </li>
           <li>
             Shared Jinja2 templates and brand stylesheet with the Python
             prototype, so the web tool and the CLI produce identical output.
           </li>
           <li>
-            HMAC-signed cookie auth and a sliding-window rate limiter, written
-            and tested against the intake flow — the production environment
-            variables to switch them on weren&apos;t set before the
-            engagement&apos;s 60 hours closed.
-          </li>
-          <li>
-            A twelve-phase intake-form scaffold at{" "}
-            <code className="rounded border border-primary/20 bg-primary/10 px-1.5 py-0.5 text-[0.9em] text-primary/90">
-              /add-event
-            </code>{" "}
-            — the first four phases exist as a wizard shell with no live form
-            fields yet. Event intake stayed manual through the Google Sheet
-            for the length of the engagement.
+            Cookie auth, rate limiting, and an intake-form scaffold were
+            written and tested but never switched on in production; the
+            engagement&apos;s 60 hours closed first, and event intake stayed
+            manual through the Google Sheet.
           </li>
         </ul>
       </section>
@@ -314,26 +291,15 @@ export default function PopUpChapelPage() {
         <h2 className="font-[family-name:var(--font-fraunces)] text-3xl font-medium tracking-tight mb-5">
           The nine missing touchpoints
         </h2>
-        <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl mb-6">
+        <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
           The communication audit mapped 49 existing touchpoints across nine
-          booking-lifecycle stages. The piece the CEO flagged as the
-          highest-impact finding from this workstream was a list of nine
-          touchpoints we weren&apos;t sending at all — places where customers
-          expected to hear from the company but didn&apos;t.
+          booking-lifecycle stages. The finding the CEO flagged as the most
+          useful was a list of nine touchpoints the company wasn&apos;t
+          sending at all: no booking confirmation separate from the upsell,
+          no morning-of email with the coordinator&apos;s contact, no
+          post-event referral ask, and six more like them. Building those out
+          is the company&apos;s clearest next step.
         </p>
-        <ul className="space-y-2 max-w-3xl">
-          {missingTouchpoints.map((t) => (
-            <li
-              key={t.id}
-              className="flex gap-4 text-base sm:text-lg leading-relaxed text-foreground/90"
-            >
-              <span className="font-mono text-sm text-muted-foreground w-8 shrink-0 pt-0.5">
-                {t.id}
-              </span>
-              <span>{t.label}</span>
-            </li>
-          ))}
-        </ul>
       </section>
 
       <section className="mb-16 sm:mb-20">
@@ -407,30 +373,14 @@ export default function PopUpChapelPage() {
 
       <section className="mb-16 sm:mb-20">
         <h2 className="font-[family-name:var(--font-fraunces)] text-3xl font-medium tracking-tight mb-5">
-          What&apos;s next
-        </h2>
-        <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
-          The engagement&apos;s 60 hours closed before the intake form moved
-          past a wizard shell and before the HMAC auth and rate-limiting layer
-          got switched on in production — the natural stopping point for a
-          fixed-scope student project. The nine missing touchpoints from the
-          audit are the highest-value next step, once the platform team&apos;s
-          database and multi-tenant work lands.
-        </p>
-      </section>
-
-      <section className="mb-16 sm:mb-20">
-        <h2 className="font-[family-name:var(--font-fraunces)] text-3xl font-medium tracking-tight mb-5">
           What the CEO said
         </h2>
         <figure className="rounded-lg border border-border/50 border-l-4 border-l-primary/60 bg-card/30 p-6">
           <blockquote className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
             &ldquo;Working with Mohamad was a great experience. Throughout the
             project, he consistently demonstrated professionalism, strong
-            communication skills, and a thoughtful approach to collaboration.
-            He stayed engaged in discussions, contributed meaningful ideas,
-            and approached challenges with a positive, solutions-focused
-            mindset.&rdquo;
+            communication skills, and a thoughtful approach to
+            collaboration.&rdquo;
           </blockquote>
           <figcaption className="mt-4 text-sm text-muted-foreground">
             Alicia Thurston, CEO, The Pop-Up Chapel Co. Rated 5.0 / 5 in the

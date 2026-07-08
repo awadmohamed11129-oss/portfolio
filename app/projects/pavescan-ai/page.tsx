@@ -33,25 +33,25 @@ const dashboardTour = [
     src: "/images/pavescan/dashboard-upload.webp",
     alt: "Streamlit upload page with four sample crack images shown as thumbnails",
     caption:
-      "Upload — drag-and-drop the four sample crack images; thumbnails confirm what's about to be scored.",
+      "Upload: drag-and-drop the four sample crack images; thumbnails confirm what's about to be scored.",
   },
   {
     src: "/images/pavescan/dashboard-detection.png",
     alt: "Streamlit detection page showing six per-image defect detections with severity badges",
     caption:
-      "Detection — six defects across four images, four flagged Critical with severity badges and confidence.",
+      "Detection: six defects across four images, four flagged Critical with severity badges and confidence.",
   },
   {
     src: "/images/pavescan/dashboard-map.webp",
     alt: "Streamlit Folium map plotting GPS-tagged inspection markers near the University of Toronto",
     caption:
-      "Map — Folium GPS pins coloured by severity, plotted near U of T.",
+      "Map: Folium GPS pins coloured by severity, plotted near U of T.",
   },
   {
     src: "/images/pavescan/dashboard-report.png",
     alt: "Streamlit report page with PCI score 67 / Fair, class breakdown, and downloadable PDF",
     caption:
-      "Report — final PCI score (67 / Fair) with class breakdown and downloadable PDF.",
+      "Report: final PCI score (67 / Fair) with class breakdown and downloadable PDF.",
   },
 ];
 
@@ -155,13 +155,12 @@ export default function PaveScanPage() {
           The problem
         </h2>
         <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
-          Pavement Condition Index surveys are still done by trained inspectors
-          walking the surface, sketching defects, and tabulating deduct values
-          by hand against ASTM D6433. The standard works fine — the bottleneck
-          is how long it takes per kilometre, and the cost adds up fast at the
-          network scale a municipality has to cover. A model that can read a
-          photo and produce the same scoring inputs changes the cost of the
-          survey, not the standard behind the score.
+          Pavement Condition Index surveys are still done by trained
+          inspectors walking the surface and tabulating deduct values by hand
+          against ASTM D6433. The standard works fine; the bottleneck is how
+          long a survey takes per kilometre across a whole road network. A
+          model that reads a photo and produces the same scoring inputs
+          changes the cost of the survey, not the standard behind the score.
         </p>
       </section>
 
@@ -171,9 +170,9 @@ export default function PaveScanPage() {
         </h2>
         <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl mb-8">
           PaveScan AI is a Python pipeline. A YOLO11 instance-segmentation
-          model, fine-tuned on the Ultralytics Crack-Seg dataset — 4,029
+          model, fine-tuned on the Ultralytics Crack-Seg dataset (4,029
           labelled pavement-crack images split 3,717 train / 200 validation /
-          112 test, single &quot;crack&quot; class — produces per-defect class
+          112 test, single &quot;crack&quot; class), produces per-defect class
           IDs and pixel masks. Those masks feed an ASTM D6433 scoring routine
           that returns a PCI value plus per-defect deduct values. A Streamlit
           dashboard wraps the upload-to-report flow, a Folium map plots
@@ -385,37 +384,28 @@ export default function PaveScanPage() {
             harder defect classes. Around sixty epochs in, training loss kept
             trending down on paper, but validation mAP went flat and{" "}
             <code className="rounded border border-primary/20 bg-primary/10 px-1.5 py-0.5 text-[0.9em] text-primary/90">best.pt</code>{" "}
-            stopped improving — well before any reasonable convergence point.
+            stopped improving, well before any reasonable convergence point.
           </p>
           <p>
             The model itself was fine. The exponential-moving-average buffers
-            were not. Mixed-precision training was on by default. At 1280 px
-            with aggressive augmentation and focal loss, the loss surface
-            produced occasional non-finite gradients that AMP&apos;s loss
-            scaler absorbed without raising. The live model kept training on
-            rescaled gradients fine, but the EMA buffers were quietly
-            accumulating NaN values, and those NaNs got serialized into the
-            checkpoint every epoch. Validation mAP, computed against the EMA
-            weights, naturally went nowhere.
+            were not. Mixed-precision training was on by default, and at this
+            resolution the loss surface produced occasional non-finite
+            gradients that AMP&apos;s loss scaler absorbed without raising.
+            The live weights kept training fine, but the EMA buffers were
+            quietly accumulating NaN values, and those NaNs got serialized
+            into the checkpoint every epoch. Validation mAP, computed against
+            the EMA weights, went nowhere.
           </p>
           <p>
             I caught it when I tried to warm-start the next run from the
-            saved checkpoint to save time. Even with{" "}
+            saved checkpoint. Even with{" "}
             <code className="rounded border border-primary/20 bg-primary/10 px-1.5 py-0.5 text-[0.9em] text-primary/90">amp=False</code>{" "}
-            set explicitly, the run produced NaN losses on the first batch —
-            not a training problem, just the corrupted EMA buffers loading
-            back in. The fix: drop the bad checkpoint, load a clean
-            Ultralytics-pretrained YOLO11l weight, set{" "}
-            <code className="rounded border border-primary/20 bg-primary/10 px-1.5 py-0.5 text-[0.9em] text-primary/90">amp=False</code>{" "}
-            from the start, and write off the corrupted run as an
-            unrecoverable cost.
-          </p>
-          <p>
-            The lesson: on long training runs with high-resolution inputs and
-            aggressive loss configurations, AMP is not free. It can quietly
-            corrupt checkpoints in a way that&apos;s expensive to recover
-            from. For V2 onward, AMP defaults to off in this repo, with a
-            single comment pointing back at this incident.
+            set explicitly, the first batch produced NaN losses: not a
+            training problem, just the corrupted EMA buffers loading back in.
+            The fix was to drop the bad checkpoint, start from a clean
+            Ultralytics-pretrained weight, and disable AMP from the start.
+            AMP now defaults to off in this repo, with a comment pointing
+            back at this incident.
           </p>
         </div>
       </section>
@@ -448,10 +438,10 @@ export default function PaveScanPage() {
           What&apos;s next
         </h2>
         <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
-          Module 2 is planned but not yet built — orthomosaic stitching and
-          on-image measurements so a single survey produces both PCI and
-          surface geometry. A custom drone capture rig was on the original
-          roadmap and has been shelved in favour of dashcam capture for now.
+          Module 2 is planned but not built: orthomosaic stitching and
+          on-image measurements, so one survey produces both PCI and surface
+          geometry. The original drone capture rig is shelved in favour of
+          dashcam capture.
         </p>
       </section>
 

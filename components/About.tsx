@@ -12,10 +12,9 @@ export function About() {
       <div className="max-w-2xl space-y-5 text-base sm:text-lg leading-relaxed text-foreground/90">
         <p>
           I&apos;m a civil engineering student at Toronto Metropolitan
-          University. I work on infrastructure inspection — how roads,
-          bridges, and buildings get checked and scored. Most of that still
-          gets done by hand, so I build tools that put computer vision behind
-          the same standards inspectors already use.
+          University. Most infrastructure inspection still gets done by hand,
+          so I build tools that put computer vision and automation behind the
+          standards inspectors already use.
         </p>
         <p>
           <Link
@@ -56,11 +55,9 @@ export function About() {
           documents, plus a live Next.js companion tool on Vercel.
         </p>
         <p>
-          All of this work comes down to the same thing: a process that used
-          to take a person hours of manual, repetitive work now runs in
-          seconds. That&apos;s what I want to bring to a civil engineering
-          co-op — turning inspection reports, spreadsheets, and paperwork
-          into something that runs itself.
+          The common thread: work that used to take hours of manual effort
+          now runs in seconds. That&apos;s what I want to bring to a civil
+          engineering co-op.
         </p>
       </div>
     </section>

@@ -42,8 +42,8 @@ export function ContactStrip() {
         Get in touch
       </h2>
       <p className="text-muted-foreground mb-10 max-w-2xl">
-        Civil engineering co-ops, Riipen FuturePath placements, or anything
-        adjacent — happy to talk.
+        Civil engineering co-ops, placements, or anything adjacent: happy to
+        talk.
       </p>
       <ul className="grid gap-4 sm:grid-cols-2">
         {links.map(({ label, href, display, icon: Icon, external }) => (

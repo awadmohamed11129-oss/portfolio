@@ -359,10 +359,7 @@ export default function CivicDataPipelinePage() {
           <blockquote className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
             &ldquo;He demonstrated strong initiative and self-direction.
             Mohamad consistently took ownership of his tasks without needing
-            excessive guidance. In an early-stage environment where ambiguity
-            is normal, he showed the ability to: interpret requirements
-            correctly, ask clarifying questions only when necessary, move
-            work forward independently. This is a rare trait in student
+            excessive guidance. &hellip; This is a rare trait in student
             contributors and extremely valuable in a startup context.&rdquo;
           </blockquote>
           <figcaption className="mt-4 text-sm text-muted-foreground">
@@ -379,9 +376,7 @@ export default function CivicDataPipelinePage() {
         <p className="text-base sm:text-lg leading-relaxed text-foreground/90 max-w-3xl">
           The placement wrapped in early July 2026, with everything I built
           delivered and handed off. What the client does with it from here is
-          their story to tell, not mine. What I keep is the craft: seven
-          public datasets engineered end to end, a signal engine I can defend
-          line by line, and 800+ tests proving the work holds.
+          their story to tell, not mine.
         </p>
       </section>
 
