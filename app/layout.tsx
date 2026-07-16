@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Inter, Fraunces } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import SiteAnalytics from "@/components/SiteAnalytics";
 import "./globals.css";
 
 const inter = Inter({
@@ -107,8 +106,7 @@ export default function RootLayout({
           </nav>
         </header>
         <main>{children}</main>
-        <Analytics />
-        <SpeedInsights />
+        <SiteAnalytics />
         <footer className="border-t border-border/40 mt-24">
           <div className="mx-auto max-w-5xl px-6 py-8 text-xs text-muted-foreground flex flex-col sm:flex-row gap-2 justify-between">
             <span>© {new Date().getFullYear()} Mohamad Awad</span>

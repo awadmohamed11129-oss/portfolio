@@ -103,7 +103,7 @@ export default function PaveScanPage() {
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <a
-            href="https://pavescan-ai-kctjew6jj8tccs79an5dcd.streamlit.app/"
+            href="/go/pavescan-demo"
             target="_blank"
             rel="noopener noreferrer"
             className={buttonVariants({ size: "lg" })}
@@ -112,7 +112,7 @@ export default function PaveScanPage() {
             View live demo
           </a>
           <a
-            href="https://github.com/awadmohamed11129-oss/pavescan-ai"
+            href="/go/pavescan-github"
             target="_blank"
             rel="noopener noreferrer"
             className={buttonVariants({ size: "lg", variant: "outline" })}
@@ -121,7 +121,7 @@ export default function PaveScanPage() {
             View source on GitHub
           </a>
           <a
-            href="/pdfs/pavescan-sample-report.pdf"
+            href="/go/pavescan-report"
             target="_blank"
             rel="noopener noreferrer"
             className={buttonVariants({ size: "lg", variant: "outline" })}
@@ -415,7 +415,7 @@ export default function PaveScanPage() {
           Sample PDF report
         </h2>
         <a
-          href="/pdfs/pavescan-sample-report.pdf"
+          href="/go/pavescan-report"
           target="_blank"
           rel="noopener noreferrer"
           className="group flex items-center gap-4 rounded-lg border border-border/60 bg-card/30 px-5 py-4 max-w-md transition-colors hover:border-border hover:bg-card/60"
@@ -454,7 +454,7 @@ export default function PaveScanPage() {
           Back to home
         </Link>
         <a
-          href="https://github.com/awadmohamed11129-oss/pavescan-ai"
+          href="/go/pavescan-github"
           target="_blank"
           rel="noopener noreferrer"
           className={buttonVariants({ variant: "outline" })}
