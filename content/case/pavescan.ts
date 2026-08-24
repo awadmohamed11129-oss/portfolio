@@ -81,7 +81,7 @@ export const pavescanCase: CaseStudy = {
         {
           label: "Network condition",
           fact: f.pci,
-          note: `rated ${f.pciRating.value} under ASTM D6433`,
+          note: `rated ${f.pciRating.value} on the 0 to 100 ASTM D6433 index`,
         },
       ],
       note:
@@ -158,11 +158,13 @@ export const pavescanCase: CaseStudy = {
           "survives: one for shadows, which look like cracks and are not, and " +
           "one for utility covers, which are dark, roughly round, genuinely on " +
           "the road, and not damage.",
-        `On this drive the cover classifier pulled ${f.coversExcluded.value} ` +
-          `manhole covers out of the score, leaving ${f.scored.value} of ` +
-          `${f.defects.value} defects scored. They are flagged in the report ` +
-          "rather than deleted, because an inspector should be able to see what " +
-          "the machine chose to ignore and overrule it.",
+        "The whole chain in one line, because these numbers look like they " +
+          `disagree when they are scattered: ${f.sightings.value} raw sightings ` +
+          `merge into ${f.defects.value} distinct defects, the cover classifier ` +
+          `sets aside ${f.coversExcluded.value} utility covers, and ` +
+          `${f.scored.value} defects are scored. The covers are flagged in the ` +
+          "report rather than deleted, because an inspector should be able to " +
+          "see what the machine chose to ignore and overrule it.",
         `Of the defects that scored, ${f.longitudinal.value} are longitudinal ` +
           `cracks, ${f.transverse.value} transverse, ${f.alligator.value} ` +
           `alligator cracking, and ${f.potholes.value} potholes. ` +
@@ -198,8 +200,9 @@ export const pavescanCase: CaseStudy = {
           "deduct curves, corrected for how many distress types are present, " +
           "and subtracted from 100. Because the sample grid depends only on the " +
           "length of the route and not on how the route is later sliced for a " +
-          `report, the score stops moving: ${f.pci.value} at 25, 50, 100, 150, ` +
-          `200, 300 and 500 metre segments. A spread of ${f.pciSpread.value}.`,
+          "report, the score stops moving. It comes out the same at 25, 50, " +
+          "100, 150, 200, 300 and 500 metre segments: " +
+          `${f.pci.value}, a spread of ${f.pciSpread.value}.`,
         "Digitising the standard's curves turned up a second bug worth " +
           "admitting. Those curves are drawn in imperial units, and a density " +
           "is only unit-free when the quantity is itself an area. Reading a " +

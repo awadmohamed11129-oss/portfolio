@@ -106,8 +106,10 @@ export const pavescan = {
     `${SCORER} -> safety_priority critical after cover exclusion; 19 before`,
     DRIVE,
   ),
+  /* Carries its own scale. A bare "85" reads as ambiguous next to percentages,
+   * and PCI is a 0-100 index where 100 is a road in perfect condition. */
   pci: fact(
-    "85",
+    "85/100",
     `${SCORER} -> network_pci of segment_pci = 85 at 25, 50, 100, 150, 200, 300 and 500 m`,
     DRIVE,
   ),
