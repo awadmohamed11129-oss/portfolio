@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { CaseRenderer } from "@/components/case/CaseRenderer";
-import { popupChapelCase } from "@/content/case/popup-chapel";
+import { localflowCase } from "@/content/case/localflow";
 
-const study = popupChapelCase;
+const study = localflowCase;
 
 export const metadata: Metadata = {
   title: study.title,
