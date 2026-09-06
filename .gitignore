@@ -12,9 +12,13 @@
 
 # testing
 /coverage
+/docs/qa/playwright-report/
+/docs/qa/test-results/
+/docs/qa/results.json
 
 # next.js
 /.next/
+/.next-dev/
 /out/
 
 # production

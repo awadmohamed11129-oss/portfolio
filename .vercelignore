@@ -1,0 +1,13 @@
+# Local build output, tooling and review artifacts are not deployment inputs.
+.git
+.next
+.next-dev
+node_modules
+.vercel
+.env*
+assets-src
+docs
+tests
+coverage
+*.tsbuildinfo
+*.log

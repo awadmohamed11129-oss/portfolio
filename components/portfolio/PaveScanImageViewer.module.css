@@ -1,0 +1,36 @@
+.dialog { width: min(1440px, calc(100vw - 28px)); max-width: none; height: min(1000px, calc(100dvh - 28px)); max-height: none; padding: 0; margin: auto; border: 1px solid #405c6e; background: #071321; color: #e1e9ef; overscroll-behavior: contain; }
+.dialog::backdrop { background: rgb(0 4 10 / .94); }
+.layout { display: flex; flex-direction: column; height: 100%; min-height: 0; padding: 20px; gap: 14px; }
+.header { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.header p { font-size: 11px; color: #a6becf; margin: 0 0 3px; }
+.header h2 { font-family: var(--font-fraunces), serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0; }
+.dialog button { flex-shrink: 0; background: transparent; color: #e1e9ef; border: 1px solid #405c6e; min-height: 44px; padding: 8px 14px; font-family: inherit; font-size: 13px; cursor: pointer; }
+.dialog button:hover:not(:disabled) { background: #203b4d; }
+.dialog button:disabled { opacity: .4; cursor: default; }
+.dialog button:focus-visible, .surface:focus-visible, .compare input:focus-visible { outline: 2px solid #8ed9eb; outline-offset: 3px; }
+.tools { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+.tools output { min-width: 56px; font-size: 13px; text-align: center; font-variant-numeric: tabular-nums; }
+.tools button:last-child { margin-left: auto; }
+.surface { position: relative; flex: 1; min-height: 120px; overflow: hidden; background: #020508; touch-action: none; user-select: none; cursor: grab; }
+.surface:active { cursor: grabbing; }
+.image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transform-origin: center; pointer-events: none; }
+.result { position: absolute; inset: 0; overflow: hidden; background: #020508; pointer-events: none; }
+.divider { position: absolute; top: 0; bottom: 0; width: 2px; transform: translateX(-50%); background: white; pointer-events: none; }
+.labels { position: absolute; inset: 10px 10px auto; display: flex; justify-content: space-between; pointer-events: none; }
+.labels span { font-size: 11px; padding: 6px 9px; background: #071321e8; color: #fff; }
+.compare { display: flex; align-items: center; gap: 18px; }
+.compare label { font-size: 12px; flex-shrink: 0; }
+.compare input { flex: 1; min-width: 0; min-height: 44px; accent-color: #8ed9eb; cursor: ew-resize; }
+.hint { margin: 0; font-size: 12px; line-height: 1.6; color: #a6becf; }
+@media(max-width: 599px) {
+  .dialog { width: calc(100vw - 12px); height: calc(100dvh - 12px); }
+  .layout { padding: 12px; gap: 10px; }
+  .header { align-items: flex-start; gap: 12px; }
+  .header h2 { font-size: 23px; }
+  .header button { max-width: 105px; line-height: 1.4; font-size: 11px; }
+  .tools { gap: 6px; }
+  .dialog .tools button { padding: 7px 10px; font-size: 12px; }
+  .tools output { min-width: 40px; }
+  .compare { gap: 10px; }
+  .hint { font-size: 11px; }
+}

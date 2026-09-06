@@ -1,0 +1,70 @@
+{
+  "stage": "corner",
+  "quality": "high",
+  "blender": "5.2.1 LTS",
+  "bakedIndirect": true,
+  "model": "/room/models/room-corner-high.glb",
+  "modelBytes": 8886056,
+  "triangles": 71126,
+  "lightmap": {
+    "carrier": "occlusionTexture",
+    "runtimeSlot": "lightMap",
+    "uvChannel": 1,
+    "colorSpace": "srgb",
+    "directBaked": false,
+    "colorBaked": false,
+    "encoding": "srgb-normalized-indirect-v1",
+    "gain": 11.57203105163574,
+    "sourceMin": 0.0,
+    "sourceMax": 11.560470581054688,
+    "maxRoundtripError": 0.043857574462890625,
+    "rmse": 0.0016191134927794337,
+    "negativeTexels": 0,
+    "floatSource": true,
+    "denoising": {
+      "filter": "RTLightmap",
+      "oidnVersion": 20500,
+      "device": "CPU postprocess",
+      "quality": "high (default)",
+      "directional": false,
+      "inputScale": "automatic HDR",
+      "seconds": 0.9189901000008831,
+      "dllSha256": "e200ac479e04cf89d80b7422b524a6d05fcdcaeb9bf391a16dbc07d2c0838075",
+      "weightsSha256": "5f9757cb6a3d6c966cbd50dcd0cbffef88fe78f80cb7bf45ca99bcbd4ff1292d",
+      "sourceRange": [
+        0.0,
+        13.311378479003906
+      ],
+      "outputRange": [
+        0.0,
+        11.560470581054688
+      ],
+      "sourceMean": 0.05769727751612663,
+      "outputMean": 0.05752401426434517,
+      "changeRmse": 0.022090034559369087,
+      "preservedEmptyTexels": 3007980,
+      "floatOutput": "retained offline in source archive",
+      "floatOutputSha256": "07e68f4ae34a08ec53c7ffc7742743e67747669d7472adbd17a4bc8ddbdae03d"
+    },
+    "allocation": {
+      "paintedRelativeLinearScale": 3,
+      "islands": 1286,
+      "prioritizedIslands": 192,
+      "atlasSize": 2048,
+      "gutterFraction": 0.005,
+      "bakeMarginPixels": 4
+    }
+  },
+  "designCoordinates": "metres,Y-up;floor0.46",
+  "authoredParts": 211,
+  "authoringScriptSha256": "4d892be8aa591b653a61718956a9198efedf3636a2fbedef077999ac753fcdfd",
+  "encodingScriptSha256": "2b2b21806edf28a464696c2d4f0afcd790f6321215a9793e26e91dbd27c2538e",
+  "denoisingScriptSha256": "c1a9cde95840575aa08fad3d895511840503730a8e3cc04b1170270d664480ab",
+  "upholsteryScriptSha256": "0a55e56c7596546cffc94f85592c55660a665bd7e1f47382ea5ebbd634146e3f",
+  "indirectUvScriptSha256": "eb30b59ee8710952c193b9ca8bbe95c22a39e635a420567679eda9f73e54d178",
+  "editableBlendSha256": "74cb1d9a33fcfcd4b2ccc4bceb2d76362bc2b9f833b19b3a52e62b1561d1b8df",
+  "samples": 256,
+  "bakeDevice": [
+    "AMD Radeon RX 9070 XT"
+  ]
+}

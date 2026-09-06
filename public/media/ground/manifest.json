@@ -1,0 +1,157 @@
+{
+  "anchor": {
+    "lat": 43.7969339,
+    "lon": -79.2237139
+  },
+  "window": {
+    "halfX": 3.1,
+    "halfY": 2.05
+  },
+  "fetchedAt": "2026-09-05T03:18:02.990Z",
+  "sources": {
+    "toronto": {
+      "zooms": [
+        13,
+        20
+      ],
+      "tiles": 292,
+      "bytes": 7171133,
+      "missing": [],
+      "attribution": "Contains information licensed under the Open Government Licence \u2013 Toronto",
+      "licence": "https://open.toronto.ca/open-data-licence/",
+      "byZoom": {
+        "13": {
+          "tiles": 35,
+          "bytes": 1761212,
+          "missing": 0
+        },
+        "14": {
+          "tiles": 35,
+          "bytes": 973741,
+          "missing": 0
+        },
+        "15": {
+          "tiles": 35,
+          "bytes": 849974,
+          "missing": 0
+        },
+        "16": {
+          "tiles": 35,
+          "bytes": 705165,
+          "missing": 0
+        },
+        "17": {
+          "tiles": 42,
+          "bytes": 849052,
+          "missing": 0
+        },
+        "18": {
+          "tiles": 40,
+          "bytes": 849142,
+          "missing": 0
+        },
+        "19": {
+          "tiles": 35,
+          "bytes": 595289,
+          "missing": 0
+        },
+        "20": {
+          "tiles": 35,
+          "bytes": 587558,
+          "missing": 0
+        }
+      }
+    },
+    "landsat": {
+      "zooms": [
+        9,
+        12
+      ],
+      "tiles": 140,
+      "bytes": 2133512,
+      "missing": [],
+      "attribution": "Imagery provided by services from NASA's Global Imagery Browse Services (GIBS), part of NASA's Earth Science Data and Information System (ESDIS)",
+      "licence": "https://www.earthdata.nasa.gov/engage/open-data-services-software/earthdata-developer-portal/gibs-api",
+      "byZoom": {
+        "9": {
+          "tiles": 35,
+          "bytes": 545522,
+          "missing": 0
+        },
+        "10": {
+          "tiles": 35,
+          "bytes": 544076,
+          "missing": 0
+        },
+        "11": {
+          "tiles": 35,
+          "bytes": 523389,
+          "missing": 0
+        },
+        "12": {
+          "tiles": 35,
+          "bytes": 520525,
+          "missing": 0
+        }
+      }
+    },
+    "bmng": {
+      "zooms": [
+        5,
+        8
+      ],
+      "tiles": 150,
+      "bytes": 1244942,
+      "missing": [],
+      "attribution": "NASA GIBS \u00b7 Blue Marble Next Generation",
+      "licence": "https://www.earthdata.nasa.gov/engage/open-data-services-software/earthdata-developer-portal/gibs-api",
+      "byZoom": {
+        "5": {
+          "tiles": 40,
+          "bytes": 335355,
+          "missing": 0
+        },
+        "6": {
+          "tiles": 40,
+          "bytes": 328452,
+          "missing": 0
+        },
+        "7": {
+          "tiles": 35,
+          "bytes": 306489,
+          "missing": 0
+        },
+        "8": {
+          "tiles": 35,
+          "bytes": 274646,
+          "missing": 0
+        }
+      }
+    },
+    "terrain": {
+      "zooms": [
+        11,
+        11
+      ],
+      "tiles": 9,
+      "bytes": 598046,
+      "missing": [],
+      "attribution": "Terrain Tiles: Mapzen / AWS Open Data \u00b7 Contains information licensed under the Open Government Licence \u2013 Canada",
+      "licence": "https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+      "byZoom": {
+        "11": {
+          "tiles": 9,
+          "bytes": 598046,
+          "missing": 0
+        }
+      }
+    }
+  },
+  "encoded": {
+    "format": "webp",
+    "quality": 78,
+    "tiles": 591,
+    "jpegBytes": 11147633,
+    "webpBytes": 6539824
+  }
+}

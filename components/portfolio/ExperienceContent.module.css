@@ -1,0 +1,47 @@
+.page { --experience-text: #cbd7df; --experience-muted: #a7b8c6; min-width: 0; }
+.pageHeading { padding-bottom: 24px; }
+.pageHeading h1 { font-family: var(--font-fraunces), serif; font-size: 46px; line-height: 1.05; font-weight: 400; letter-spacing: -.025em; margin: 0 0 24px; }
+.pageHeading > p { max-width: 54ch; color: var(--experience-text); font-size: 17px; line-height: 27px; margin: 0 0 12px; }
+.textLink { display: inline-block; min-height: 44px; padding: 12px 0; color: #e5edf3; font-size: 13px; line-height: 20px; text-decoration: underline; text-underline-offset: 6px; }
+.textLink:hover, .index a:hover, .campusFigure a:hover { color: #fff; }
+.page a:focus-visible { outline: 2px solid #b8dcf3; outline-offset: 5px; border-radius: 2px; }
+.index { display: flex; flex-wrap: wrap; gap: 0 24px; padding: 0 0 23px; border-bottom: 1px solid #354757; }
+.index a { display: inline-flex; align-items: center; min-height: 44px; color: var(--experience-text); font-size: 12px; line-height: 18px; text-decoration: underline; text-underline-offset: 5px; }
+.roles { display: grid; gap: 60px; padding-top: 38px; }
+.role { min-width: 0; scroll-margin-top: 120px; }
+.roleHeading { margin-bottom: 25px; }
+.company { color: var(--experience-muted); font-size: 13px; line-height: 21px; margin: 0 0 12px; }
+.role h2 { font-family: var(--font-fraunces), serif; font-weight: 400; font-size: 34px; line-height: 1.12; letter-spacing: -.02em; text-wrap: balance; margin: 0 0 16px; max-width: 26ch; }
+.roleMeta { display: flex; flex-wrap: wrap; gap: 3px 22px; }
+.roleMeta p { color: var(--experience-muted); font-size: 12px; line-height: 20px; margin: 0; }
+.responsibilities { margin: 0; padding-left: 18px; max-width: 67ch; color: var(--experience-text); list-style: disc; }
+.responsibilities li { font-size: 16px; line-height: 27px; padding-left: 5px; margin-bottom: 17px; }
+.responsibilities li::marker { color: #8da7ba; font-size: 10px; }
+.responsibilities li:last-child { margin-bottom: 0; }
+.role > .textLink { margin-top: 15px; }
+.placementIntro { max-width: 56ch; margin: 0; color: var(--experience-text); font-size: 16px; line-height: 27px; }
+.placementDetails { margin-top: 20px; }
+.placementDetails summary { width: fit-content; min-height: 44px; padding-block: 12px; color: #e5edf3; font-size: 13px; line-height: 20px; cursor: pointer; }
+.placementDetails summary:focus-visible { outline: 2px solid #b8dcf3; outline-offset: 4px; }
+.placementDetails[open] .responsibilities { padding-top: 15px; }
+.campusFigure { margin: 0 0 27px; }
+.campusFigure img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 11; object-fit: cover; object-position: 50% 47%; }
+.campusFigure figcaption { display: grid; gap: 3px; color: var(--experience-muted); font-size: 11px; line-height: 18px; margin-top: 11px; }
+.campusFigure a { text-decoration: underline; text-underline-offset: 3px; }
+.skills { padding-top: 62px; margin-top: 58px; border-top: 1px solid #354757; scroll-margin-top: 120px; }
+.skills h2 { font-family: var(--font-fraunces), serif; font-size: 32px; line-height: 1.15; font-weight: 400; letter-spacing: -.02em; margin: 0 0 16px; }
+.skills header > p { color: var(--experience-text); max-width: 48ch; font-size: 15px; line-height: 25px; margin: 0; }
+.skills dl { margin: 32px 0 0; display: grid; gap: 23px; }
+.skills dl > div { padding-bottom: 23px; border-bottom: 1px solid #2b3c4b; }
+.skills dt { color: #e5edf3; font-size: 14px; line-height: 22px; margin-bottom: 10px; }
+.skills dd { margin: 0; }
+.skills ul { display: flex; flex-wrap: wrap; gap: 6px 19px; margin: 0; padding: 0; list-style: none; color: var(--experience-muted); font-size: 13px; line-height: 22px; }
+.nextStep { margin-top: 45px; }
+.nextStep p { color: var(--experience-text); font-size: 16px; line-height: 26px; margin: 0 0 4px; }
+@media (max-width: 599px) {
+  .pageHeading h1 { font-size: 44px; }
+  .roles { gap: 46px; }
+  .role h2 { font-size: 31px; }
+  .responsibilities li { font-size: 15px; line-height: 26px; }
+  .skills { padding-top: 42px; margin-top: 44px; }
+}

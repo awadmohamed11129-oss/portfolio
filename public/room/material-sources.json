@@ -1,0 +1,291 @@
+{
+  "sourceCredit": "Powered by Poly Haven",
+  "licenseSource": "https://polyhaven.com/license",
+  "derivatives": {
+    "script": "assets-src/room/fetch_materials.py",
+    "colorSpace": "sRGB color derivatives; linear data ORM",
+    "rough_linen": "Luminance-normalized slate RGB(.50,.545,.575); roughness .87+.10*source",
+    "beige_wall_001": "Luminance-normalized neutral RGB(.82,.815,.80); roughness .85+.10*source",
+    "oak_veneer_01": "65% source saturation; roughness .55+.30*source",
+    "laminate_floor_02": "45% source saturation; roughness .60+.32*source",
+    "orm": "Lossless PNG: R=1(no source AO), B=0; material also explicitly metallic0",
+    "normal": "Unchanged source OpenGL normal; resized only"
+  },
+  "materials": [
+    {
+      "id": "oak_veneer_01",
+      "source": "https://polyhaven.com/a/oak_veneer_01",
+      "license": "CC0-1.0",
+      "authors": {
+        "Jenelle van Heerden": "All"
+      },
+      "dimensionsMetres": [
+        1.8300000429153442,
+        1.8300000429153442
+      ],
+      "maps": {
+        "high": {
+          "basecolor": "/room/textures/oak_veneer_01-basecolor-high.jpg",
+          "normal": "/room/textures/oak_veneer_01-normal-high.jpg",
+          "orm": "/room/textures/oak_veneer_01-orm-high.png"
+        },
+        "low": {
+          "basecolor": "/room/textures/oak_veneer_01-basecolor-low.jpg",
+          "normal": "/room/textures/oak_veneer_01-normal-low.jpg",
+          "orm": "/room/textures/oak_veneer_01-orm-low.png"
+        }
+      },
+      "receipts": [
+        {
+          "url": "/room/textures/oak_veneer_01-basecolor-high.jpg",
+          "bytes": 213731,
+          "sha256": "f198aa4a1f1062163ac05dd7d7e094fac003990be2f7e5ebdeb2c0451dd6c83b"
+        },
+        {
+          "url": "/room/textures/oak_veneer_01-basecolor-low.jpg",
+          "bytes": 50458,
+          "sha256": "0ecdfbc018add63e0eb1983144c69e9e13b16418ec5c133daa77acbafc12ae86"
+        },
+        {
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/oak_veneer_01/oak_veneer_01_diff_1k.jpg",
+          "sourceSha256": "c14681f72f59f17bff568cae7a837641443b607b899f0c279cd64a5638f877a7"
+        },
+        {
+          "url": "/room/textures/oak_veneer_01-normal-high.jpg",
+          "bytes": 148562,
+          "sha256": "da84cd9a1cdfba123e671adc59e3a7b26f5fa266227c1eaba8e46b79a9359aec"
+        },
+        {
+          "url": "/room/textures/oak_veneer_01-normal-low.jpg",
+          "bytes": 23387,
+          "sha256": "73d0b8af708bc60c09646fca6a05a4f05ee17be7dcac160015f3be08bc8aaad2"
+        },
+        {
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/oak_veneer_01/oak_veneer_01_nor_gl_1k.jpg",
+          "sourceSha256": "1297acf7b4476d5ccd83cc8b27be96aa6110f7a9c3a40be0bd767bf81b17db01"
+        },
+        {
+          "url": "/room/textures/oak_veneer_01-orm-high.png",
+          "bytes": 584731,
+          "sha256": "de4dc3f85ad4017576c1058133ae1b0cd1affa398c950037e8f66d2b0dad835b"
+        },
+        {
+          "url": "/room/textures/oak_veneer_01-orm-low.png",
+          "bytes": 139581,
+          "sha256": "ec8807201414439158f3759061743330bfb9322650504cbe3705906c2a7e60d2"
+        },
+        {
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/oak_veneer_01/oak_veneer_01_arm_1k.jpg",
+          "sourceSha256": "8bf4f36a9ba1d5377a2fa5273a2a0763775afe511b50293d71b159d15576cf1e"
+        }
+      ]
+    },
+    {
+      "id": "rough_linen",
+      "source": "https://polyhaven.com/a/rough_linen",
+      "license": "CC0-1.0",
+      "authors": {
+        "colormass": "Photography",
+        "Rico Cilliers": "Processing"
+      },
+      "dimensionsMetres": [
+        0.2707081392676629,
+        0.27129998803138733
+      ],
+      "maps": {
+        "high": {
+          "basecolor": "/room/textures/rough_linen-basecolor-high.jpg",
+          "normal": "/room/textures/rough_linen-normal-high.jpg",
+          "orm": "/room/textures/rough_linen-orm-high.png"
+        },
+        "low": {
+          "basecolor": "/room/textures/rough_linen-basecolor-low.jpg",
+          "normal": "/room/textures/rough_linen-normal-low.jpg",
+          "orm": "/room/textures/rough_linen-orm-low.png"
+        }
+      },
+      "receipts": [
+        {
+          "url": "/room/textures/rough_linen-basecolor-high.jpg",
+          "bytes": 228444,
+          "sha256": "b3266483b132981d437e317670b81ddc8948f005985079dd77ce8443b03ea761"
+        },
+        {
+          "url": "/room/textures/rough_linen-basecolor-low.jpg",
+          "bytes": 27279,
+          "sha256": "ffc5806b6adf6979bd29e4d87c73d9471296d143f32023748fe614b1b424e6cc"
+        },
+        {
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rough_linen/rough_linen_diff_1k.jpg",
+          "sourceSha256": "04897d7611d7390ddf5b2c6f7273f448dfc48341fdbd1f4f207fa30b331d7f57"
+        },
+        {
+          "url": "/room/textures/rough_linen-normal-high.jpg",
+          "bytes": 400739,
+          "sha256": "c9a5565bf830a6e5a95059abe3cdddc08f6a6f2a57f769ae252be81022a19f03"
+        },
+        {
+          "url": "/room/textures/rough_linen-normal-low.jpg",
+          "bytes": 65492,
+          "sha256": "f6ecdb1bed9446bf0b08feb2f4cf6ef297bbe1f32bdbe06fbaf7c6ec5c12ffcf"
+        },
+        {
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rough_linen/rough_linen_nor_gl_1k.jpg",
+          "sourceSha256": "e2402166d1a489f7414814e69e1836ab672aa24e30bec2d41fea356f81687e53"
+        },
+        {
+          "url": "/room/textures/rough_linen-orm-high.png",
+          "bytes": 474305,
+          "sha256": "5e4d4b08ad365c2480328dedde1f9c76b181a135ffbf8da2138be345c9c0f508"
+        },
+        {
+          "url": "/room/textures/rough_linen-orm-low.png",
+          "bytes": 108241,
+          "sha256": "1b5d50e601938bdb113e181afbe510872f6fd524a26aae37f26d057d5ef6b5dc"
+        },
+        {
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rough_linen/rough_linen_arm_1k.jpg",
+          "sourceSha256": "e1ca6b51ed62834063253e08f8f2e23836aa00d72675b960ddd8e608d9f0c7e6"
+        }
+      ]
+    },
+    {
+      "id": "beige_wall_001",
+      "source": "https://polyhaven.com/a/beige_wall_001",
+      "license": "CC0-1.0",
+      "authors": {
+        "Dimitrios Savva": "Photography",
+        "Rico Cilliers": "Processing"
+      },
+      "dimensionsMetres": [
+        3.0,
+        3.000000238418579
+      ],
+      "maps": {
+        "high": {
+          "basecolor": "/room/textures/beige_wall_001-basecolor-high.jpg",
+          "normal": "/room/textures/beige_wall_001-normal-high.jpg",
+          "orm": "/room/textures/beige_wall_001-orm-high.png"
+        },
+        "low": {
+          "basecolor": "/room/textures/beige_wall_001-basecolor-low.jpg",
+          "normal": "/room/textures/beige_wall_001-normal-low.jpg",
+          "orm": "/room/textures/beige_wall_001-orm-low.png"
+        }
+      },
+      "receipts": [
+        {
+          "url": "/room/textures/beige_wall_001-basecolor-high.jpg",
+          "bytes": 34454,
+          "sha256": "96ed9559a75448a027944c0a6643d928688914d18fdab5841ac84a2f73d3d9e7"
+        },
+        {
+          "url": "/room/textures/beige_wall_001-basecolor-low.jpg",
+          "bytes": 10156,
+          "sha256": "799cb4bc5e2c8bc2b3b43ea8cba05ad3d84e24ef2ceb4e030ae11ecb4ac790f1"
+        },
+        {
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/beige_wall_001/beige_wall_001_diff_1k.jpg",
+          "sourceSha256": "72104704d0b9bd3713c5f6238971252b63eccf6e61263059c674caa8f3d0fa6d"
+        },
+        {
+          "url": "/room/textures/beige_wall_001-normal-high.jpg",
+          "bytes": 192108,
+          "sha256": "205d3c2bdff1a7267d7e07cdc95ffa1ab1fa9ad923d343ed24bbb4e87e3e6610"
+        },
+        {
+          "url": "/room/textures/beige_wall_001-normal-low.jpg",
+          "bytes": 34710,
+          "sha256": "d7adfbaf7cb2ee95b5554d921d696cf78238dfa26814dd7f986aeed1b305552d"
+        },
+        {
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/beige_wall_001/beige_wall_001_nor_gl_1k.jpg",
+          "sourceSha256": "cec747be50f91da0693986080b6f59ef868d53cb2ab7d577982165ece63ed75e"
+        },
+        {
+          "url": "/room/textures/beige_wall_001-orm-high.png",
+          "bytes": 146568,
+          "sha256": "95a6750cea58edd6099de0f05074ae5cb0171bab6fb6d218a94b1596cf9a00f2"
+        },
+        {
+          "url": "/room/textures/beige_wall_001-orm-low.png",
+          "bytes": 51028,
+          "sha256": "96261032a7772e51f05be80efe445360e304111ad9e742f77578b841bb90cb34"
+        },
+        {
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/beige_wall_001/beige_wall_001_arm_1k.jpg",
+          "sourceSha256": "2382c7cccde8baedb61830a3c61264c5567aca4fbf825425fcc0544d40323f3d"
+        }
+      ]
+    },
+    {
+      "id": "laminate_floor_02",
+      "source": "https://polyhaven.com/a/laminate_floor_02",
+      "license": "CC0-1.0",
+      "authors": {
+        "Dario Barresi": "Processing",
+        "Charlotte Baglioni": "photography"
+      },
+      "dimensionsMetres": [
+        1.6999999284744263,
+        1.7000000476837158
+      ],
+      "maps": {
+        "high": {
+          "basecolor": "/room/textures/laminate_floor_02-basecolor-high.jpg",
+          "normal": "/room/textures/laminate_floor_02-normal-high.jpg",
+          "orm": "/room/textures/laminate_floor_02-orm-high.png"
+        },
+        "low": {
+          "basecolor": "/room/textures/laminate_floor_02-basecolor-low.jpg",
+          "normal": "/room/textures/laminate_floor_02-normal-low.jpg",
+          "orm": "/room/textures/laminate_floor_02-orm-low.png"
+        }
+      },
+      "receipts": [
+        {
+          "url": "/room/textures/laminate_floor_02-basecolor-high.jpg",
+          "bytes": 229014,
+          "sha256": "a4ba192b58bbdfc9b42050ce8fba872dadc5780cfad6d2735296bbf3444aa1c0"
+        },
+        {
+          "url": "/room/textures/laminate_floor_02-basecolor-low.jpg",
+          "bytes": 46005,
+          "sha256": "a68d6b0fa8dd4bff016995c37214e9288e58c6f5f4da9ab446a77792d85f4f93"
+        },
+        {
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/laminate_floor_02/laminate_floor_02_diff_1k.jpg",
+          "sourceSha256": "c112a8fb107d8600a2974af2f9fa9b595c491a33a59982e22706e9650990bf8f"
+        },
+        {
+          "url": "/room/textures/laminate_floor_02-normal-high.jpg",
+          "bytes": 163936,
+          "sha256": "b0ab107ab1819d0d1afa1e0944dc4fbccf9b1071ea9d87305c9f953dd696a343"
+        },
+        {
+          "url": "/room/textures/laminate_floor_02-normal-low.jpg",
+          "bytes": 26566,
+          "sha256": "119c734fdbbea49fff2e06832c3c3eb1e8738b9d05073b385a1ff0c6f164ee7d"
+        },
+        {
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/laminate_floor_02/laminate_floor_02_nor_gl_1k.jpg",
+          "sourceSha256": "ec501e1c76269cabc1648ab0e3f38db1b062ffef7ff4ce037fdc369383afd005"
+        },
+        {
+          "url": "/room/textures/laminate_floor_02-orm-high.png",
+          "bytes": 383173,
+          "sha256": "6dd13930055e87ecb5f807cd13bf1c132b903f9179fad6f7ce6cff510856cd55"
+        },
+        {
+          "url": "/room/textures/laminate_floor_02-orm-low.png",
+          "bytes": 90055,
+          "sha256": "0fc0a6fc2996df5cd53464ebd47b6ec9330999ad9f974fedc631ca36c1f8dedc"
+        },
+        {
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/laminate_floor_02/laminate_floor_02_arm_1k.jpg",
+          "sourceSha256": "92b006e3cb98766cb904b5b373d1264290e1cd10fe4ab7a85425db33f0313a75"
+        }
+      ]
+    }
+  ]
+}

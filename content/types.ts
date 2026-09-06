@@ -74,6 +74,8 @@ export type CaseStudy = {
   readonly links: readonly CaseLink[];
   /** Shown under the links -- access caveats, confidentiality notes. */
   readonly linkNote?: string;
+  /** A quick statement of contribution, deliverable, and project status. */
+  readonly overview?: readonly { readonly label: string; readonly value: string }[];
   readonly hero?: Media;
   readonly stack?: readonly { readonly label: string; readonly items: readonly string[] }[];
   readonly blocks: readonly Block[];
@@ -89,6 +91,8 @@ export type CaseStudy = {
 
 /** A card in the projects grid. `href` absent means there is no case study. */
 export type ProjectTeaser = {
+  /** Featured entries are capped by the collection; all entries remain listed. */
+  readonly featured?: boolean;
   readonly title: string;
   readonly context: string;
   readonly blurb: string;

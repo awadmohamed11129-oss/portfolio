@@ -1,0 +1,22 @@
+{
+  "revision": "authored-corner-upholstery-trim-pass3",
+  "stage": "corner",
+  "runtimeRequests": {
+    "high": ["/room/models/room-corner-high.json", "/room/models/room-corner-high.glb"],
+    "low": ["/room/models/room-corner-low.json", "/room/models/room-corner-low.glb"]
+  },
+  "texturesEmbeddedInGlb": true,
+  "provenance": "/room/material-sources.json",
+  "resourceOwner": "Room owns all model geometry, materials, textures and imported ImageBitmaps; World owns its renderer, environment targets and only bitmaps it creates separately.",
+  "cancellation": "Optional AbortSignal aborts model and descriptor acquisition, rejects promptly if descriptor stalls, and disposes resources including late image decodes.",
+  "lightmap": {
+    "uv": "TEXCOORD_1",
+    "carrier": "occlusionTexture",
+    "runtime": "lightMap; aoMap cleared",
+    "encoding": "srgb-normalized-indirect-v1",
+    "gain": "Read measured value from matching quality descriptor",
+    "denoising": "Official OIDN2.5 RTLightmap with matched HDR weights; linear float before encoding; raw and denoised EXRs retained in authoring source",
+    "directBaked": false,
+    "colorBaked": false
+  }
+}

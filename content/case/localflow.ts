@@ -19,16 +19,21 @@ export const localflowCase: CaseStudy = {
   title: "LocalFlow",
   eyebrow: "Personal tool, 2026",
   summary:
-    "Voice dictation that runs entirely on my own machine. Hold a key, talk, " +
-    "release, and cleaned-up text lands at the cursor in whatever app is in " +
-    "front of me. I built it because I did not want to pay a subscription to " +
-    "send my voice somewhere else.",
+    "Hold a key, speak, and cleaned-up text appears at the cursor. " +
+    "I built this Windows dictation tool to run on my own PC, without " +
+    "a subscription or sending my voice to a cloud service.",
   metaDescription:
-    "Fully local voice dictation for Windows: speech to text on the GPU, an " +
-    `on-device language model for cleanup, ${f.wer.value} word error rate at ` +
-    `${f.latency.value} mean latency, ${f.cost.value} against the ` +
+    "Voice dictation for Windows that transcribes and cleans up speech on my PC: " +
+    `${f.wer.value} word error rate, ` +
+    `${f.latency.value} average wait for text, ${f.cost.value} against the ` +
     `${f.replaces.value} subscription it replaced.`,
   links: [],
+  linkNote: "A personal Windows tool, with no public download on this page. The figures below come from an August 19, 2026 test on my PC's graphics processor (GPU).",
+  overview: [
+    { label: "My contribution", value: "Connecting speech models, cleaning up text and inserting it into Windows apps" },
+    { label: "Runs on", value: "My Windows PC, using local speech and language models" },
+    { label: "Evidence", value: "Recorded tests on one graphics processor; daily personal use" },
+  ],
   stack: [
     {
       label: "Speech and language",
@@ -46,93 +51,81 @@ export const localflowCase: CaseStudy = {
   blocks: [
     {
       kind: "stat",
-      heading: "Measured on my own machine",
+      heading: "The August test on my PC",
       items: [
-        { label: "Word error rate", fact: f.wer },
-        { label: "Mean latency", fact: f.latency, note: "hotkey release to text on screen" },
-        { label: "Faster than the CPU path", fact: f.speedup },
-        { label: "Running cost", fact: f.cost, note: `replaces a ${f.replaces.value} subscription` },
+        { label: "Word error rate", fact: f.wer, note: "Counts missed, added and incorrect words against the reference transcript" },
+        { label: "Average wait for text", fact: f.latency, note: "From releasing the key to text appearing on screen" },
+        { label: "Faster than using the CPU", fact: f.speedup, note: "Compared with running speech recognition on the main processor" },
+        { label: "Subscription and service fees", fact: f.cost, note: "Excludes hardware and electricity" },
       ],
+      note: "Measured August 19, 2026 on one Windows PC using its graphics processor and a fixed set of recordings. These results apply to that setup. The test did not use the microphone.",
     },
     {
       kind: "prose",
       heading: "Why I built it",
       body: [
-        "I was using a commercial dictation tool and liked it enough to notice " +
-          "what it cost me. Fifteen dollars a month is the small part. The " +
-          "larger part is that it streams your audio to someone else's servers, " +
-          "and to work out what you are writing about it also captures " +
-          "screenshots of your screen. I write job applications and client work " +
-          "on this machine.",
-        "So the requirement was not to build something cleverer. It was to " +
-          "build the same experience with nothing leaving the machine, and to " +
-          "find out whether consumer hardware was finally good enough to make " +
-          "that a real option rather than a compromise.",
+        "I liked using a commercial dictation tool, but wanted to keep my " +
+          "voice on my own machine and avoid another subscription. I also " +
+          "wanted control over how much it changed my wording.",
+        "I connected models that run locally and measured how quickly my PC " +
+          "returned the text. I then worked on the wait after releasing the " +
+          "key, what happens when a model fails, and how much cleanup to allow.",
       ],
     },
     {
       kind: "prose",
       heading: "How it works",
       body: [
-        "Hold the right shift key and talk. On release, the audio goes to a " +
-          "Whisper model running on the GPU, the transcript goes to a small " +
-          "language model running on the same GPU for cleanup, and the result " +
-          "is pasted at the cursor. Holding right alt instead gives the same " +
-          "text without punctuation, which is what I want in a terminal. Double " +
-          "tapping either key locks recording on so I do not have to hold " +
-          "anything through a long paragraph.",
-        "The cleanup model gets a hint about which application is in focus, so " +
-          "dictating into a chat app produces something casual and dictating " +
-          "into an email client produces something that reads like an email. " +
-          "That hint is derived from the executable name and nothing else. It " +
-          "never looks at the screen, which is precisely the behaviour I was " +
-          "trying to get away from.",
-        "There is also a personal dictionary, because general speech models " +
-          "have no idea what my proper nouns are. Near-miss transcriptions snap " +
-          "to the spelling I actually use, which is how \"versal\" learned to " +
-          "become \"Vercel\".",
+        "Hold Right Shift and talk. When you release it, Whisper turns the " +
+          "speech into text on the graphics processor. A small language model " +
+          "on the same processor cleans it up, then the app pastes it at the " +
+          "cursor. Right Alt gives the same text without punctuation, which I " +
+          "use in a command-line terminal. Double-tapping either key keeps " +
+          "recording on, so I do not have to hold it through a long paragraph.",
+        "The cleanup model uses the active app's program name as a style " +
+          "hint: casual for chat, more like an email in an email app. " +
+          "It uses only that executable name, not screenshots or other app content.",
+        "A personal dictionary helps with names the speech model gets wrong. " +
+          "It corrects close matches to my saved spelling, such as changing " +
+          "\"versal\" to \"Vercel\".",
       ],
     },
     {
       kind: "callout",
-      heading: "The decision I keep having to defend to myself",
+      heading: "Keep the words I actually said",
       tone: "note",
       body: [
         "The first version cleaned up aggressively. It cut filler, resolved " +
           "spoken self-corrections, and generally made me sound better than I " +
           "had. It was also the version I trusted least, because I could not " +
           "tell from the output what I had actually said.",
-        "So the default changed to near-verbatim: remove the ums, fix the " +
+        "So the default changed to keep almost exactly what I said: remove the ums, fix the " +
           "punctuation, keep every real word. The heavier cleanup is still " +
-          "there behind a setting. It turns out the useful property of a " +
-          "dictation tool is not that it improves your speech, it is that you " +
-          "can stop proofreading it, and that only holds while it is not " +
-          "quietly rewriting you.",
-        "The same reasoning drove the fallback chain. If the GPU speech model " +
-          "is unavailable it drops to a CPU one, and if the language model is " +
-          "unavailable the cleanup falls back to plain pattern matching. Every " +
-          "layer degrades to something worse rather than to nothing, because a " +
-          "dictation tool that occasionally loses a sentence is not a dictation " +
-          "tool.",
+          "there behind a setting. With lighter cleanup, I can compare the output " +
+          "with what I remember saying, instead of trying to spot an unexpected rewrite.",
+        "There are backups for each step. If the speech model on the graphics " +
+          "processor fails, another runs on the main processor (CPU). If the " +
+          "cleanup model is unavailable, simple text rules take over. The " +
+          "result may be slower or less polished, but the words are still available.",
       ],
     },
     {
       kind: "callout",
-      heading: "What it does not do",
+      heading: "Limits I still work around",
       tone: "limitation",
       body: [
-        "It handles English and about two dozen European languages, against " +
-          "the hundred or so the commercial tool supports. For me that is " +
-          "irrelevant. For most people it would not be.",
-        "Windows blocks pasting into elevated windows unless the tool is " +
-          "elevated too, and some terminal interfaces swallow a paste, so those " +
-          "targets get typed character by character instead. Both are worked " +
-          "around rather than solved.",
-        "The automated tests inject audio below the microphone layer, so they " +
-          "prove the pipeline rather than the microphone. The quoted error rate " +
-          "and latency come from a fixed bench on one machine with one GPU. " +
-          "They are honest numbers for this setup and I would not present them " +
-          "as a benchmark of anything broader.",
+        "Supported languages depend on the speech model. The graphics-processor " +
+          "version uses Whisper; the Parakeet backup supports a different set. " +
+          "This test does not tell me how accurate it is across languages or accents.",
+        "Windows blocks pasting into apps running as administrator unless " +
+          "LocalFlow also has that permission. Some terminals ignore pasted " +
+          "text, so the tool types it character by character there. These are workarounds.",
+        "The automated tests feed recordings directly into the software, " +
+          "bypassing the microphone. The error rate and wait time come from a " +
+          "fixed test on one PC and graphics processor. They do not measure " +
+          "microphone quality or tell us how other hardware will perform.",
+        "The app saves both raw and cleaned text in a local history file. " +
+          "Keeping speech off a cloud service still leaves that record on the PC.",
       ],
     },
     {
@@ -140,9 +133,8 @@ export const localflowCase: CaseStudy = {
       heading: "Where it stands",
       body: [
         "I use it every day, including for a good share of the writing that " +
-          "went into this site. That is the real test, and it is the reason the " +
-          "limitations above are written from experience rather than from a " +
-          "test report.",
+          "went into this site. Personal use helps me find awkward behaviour between " +
+          "the benchmark runs; it does not replace those measurements.",
       ],
     },
   ],

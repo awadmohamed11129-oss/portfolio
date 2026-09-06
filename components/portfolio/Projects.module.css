@@ -1,0 +1,27 @@
+.pageHeading { padding: 0 0 40px; }
+.eyebrow, .context { color: #a7b8c6; font-size: 10px; line-height: 1.6; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 18px; }
+.pageHeading h1 { font-family: var(--font-fraunces), serif; font-size: 46px; line-height: 1.05; font-weight: 400; letter-spacing: -.025em; margin: 0 0 24px; }
+.pageHeading > p:last-child { color: #cbd7df; font-size: 17px; line-height: 27px; max-width: 54ch; margin: 0; }
+.projectGallery { display: grid; gap: 76px; }
+.project { min-width: 0; scroll-margin-top: 130px; }
+.projectFigure { margin: 0 0 24px; width: 100%; }
+.imageLink { display: block; overflow: hidden; }
+.imageLink img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.projectCopy .context { font-size: 12px; letter-spacing: 0; text-transform: none; margin-bottom: 12px; }
+.project h2 { font-family: var(--font-fraunces), serif; font-size: 34px; line-height: 1.1; font-weight: 400; letter-spacing: -.02em; margin: 0 0 14px; }
+.projectDescription { color: #cbd7df; font-size: 17px; line-height: 27px; margin: 0; }
+.caseLink { display: inline-block; padding: 8px 0; min-height: 44px; color: #e5edf3; font-size: 13px; text-decoration: underline; text-underline-offset: 6px; }
+.caseLink:hover, .project h2 a:hover { color: #fff; }
+.coursework { margin-top: 80px; }
+.coursework article + article { margin-top: 35px; }
+.coursework h2 { font-family: var(--font-fraunces), serif; font-size: 30px; font-weight: 400; line-height: 1.2; margin: 0 0 16px; }
+.coursework p:not(.context) { font-size: 15px; line-height: 25px; color: #bdccd7; margin: 0; }
+.coursework p.courseworkNote { font-size: 12px; margin-top: 15px; color: #a7b8c6; }
+.srOnly { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 599px) {
+  .pageHeading h1 { font-size: 44px; }
+  .projectGallery { gap: 48px; }
+  .project h2 { font-size: 32px; }
+}
+.projectFigure figcaption { color: #9fb6c7; font-size: 10px; line-height: 17px; margin-top: 10px; }
+.projectFigure figcaption a { text-decoration: underline; text-underline-offset: 3px; }

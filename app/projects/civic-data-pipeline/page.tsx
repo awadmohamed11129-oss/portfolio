@@ -7,6 +7,8 @@ const study = civicDataCase;
 export const metadata: Metadata = {
   title: study.title,
   description: study.metaDescription,
+  alternates: { canonical: "/projects/civic-data-pipeline" },
+  openGraph: { title: `${study.title} - Mohamad Awad`, description: study.metaDescription, url: "/projects/civic-data-pipeline" },
   twitter: {
     card: "summary_large_image",
     title: `${study.title} - Mohamad Awad`,

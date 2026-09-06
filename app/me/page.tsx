@@ -13,9 +13,9 @@ export default function MePage() {
         Analytics opt-out
       </h1>
       <p className="mt-4 text-muted-foreground leading-relaxed">
-        This page marks the current browser so its visits and clicks are not
+        Use the button below to mark the current browser so its visits and clicks are not
         counted in this site&apos;s analytics. The setting is stored on the
-        device, so open this page once in every browser you use.
+        device, so enable it in every browser you use.
       </p>
       <OptOut />
     </div>

@@ -18,21 +18,23 @@ export const civicDataCase: CaseStudy = {
   title: "Civic Data Pipeline",
   eyebrow: "Work placement, May to July 2026",
   summary:
-    "Production ETL for a Toronto smart-city startup: six City of Toronto " +
-    "mobility datasets engineered end to end, plus a signal engine that turns " +
-    `${f.years311.value} of 311 service requests into something a non-technical ` +
-    "reader can act on.",
+    "I built tools to clean six Toronto transport datasets and find trends in " +
+    `${f.years311.value} of 311 service requests for a Toronto smart-city startup.`,
   metaDescription:
-    "Production ETL over Toronto open data: six mobility ingestors and a " +
-    `signal engine across ${f.years311.value} of 311 service requests. ` +
-    `${f.rows.value} rows, ${f.tests.value} tests passing.`,
+    "Tools to collect and clean Toronto open data: six transport datasets and " +
+    `trend analysis across ${f.years311.value} of 311 service requests. ` +
+    `${f.rows.value} rows of public data processed during the placement.`,
   links: [
     { label: "Browse the source data", href: DIRECT.torontoOpenData, icon: "external" },
   ],
   linkNote:
-    "Client work in a private repository under a confidentiality agreement. " +
-    "This page describes my own code and public datasets, at the level the " +
-    "agreement allows.",
+    "The client code is private under a confidentiality agreement. " +
+    "This page covers my own work with public data and leaves out private client details.",
+  overview: [
+    { label: "My contribution", value: "Data collection and cleanup, quality checks, and 311 trend analysis" },
+    { label: "Delivered", value: "Three sets of code changes submitted for review, documented outputs and handoff material" },
+    { label: "Scope", value: "My own work with public data; client implementation stays private" },
+  ],
   stack: [
     {
       label: "Stack",
@@ -50,80 +52,79 @@ export const civicDataCase: CaseStudy = {
   blocks: [
     {
       kind: "diagram",
-      heading: "Two pipelines, one codebase",
+      heading: "Two ways to make the data useful",
       id: "civic-pipeline",
     },
     {
       kind: "prose",
       heading: "The placement",
       body: [
-        "My lane was Toronto's open mobility data, which is messy in every way " +
-          "real data is messy. The job was to turn it into clean, well-typed " +
-          "events and measures. An event is what happened, where and when. A " +
-          "measure is how much, and in what unit. Most of the difficulty was " +
-          "not writing the parser. It was deciding what the pipeline should " +
-          "refuse to say.",
-        "I was the newest person in a shared production codebase, so I worked " +
-          "in a way that made me easy to review. Everything went through review " +
-          "before it landed, and my changes to shared configuration only ever " +
-          `added lines. By the end I had written about ${f.lines.value} lines ` +
-          "across three pull requests.",
+        "I worked on Toronto's public transport and traffic data. I built data importers, " +
+          "also called ingestors, to turn inconsistent files into records with " +
+          "consistent field types. The records separate events from measures: " +
+          "an event says what happened, where and when; a measure says how much, " +
+          "and in what unit. The hardest decisions were about what the source " +
+          "data could honestly tell us.",
+        "I was the newest person working in the shared production codebase, so " +
+          "I kept my changes easy to review. Changes to shared settings only " +
+          "added lines. By handoff I had submitted about " +
+          `${f.lines.value} lines across three pull requests, which are code changes ` +
+          "submitted for review. I cannot verify whether those changes were later merged or put into use.",
       ],
     },
     {
       kind: "list",
-      heading: "Six datasets, six kinds of messy",
+      heading: "The source data shaped the design",
       style: "cards",
       items: [
         {
-          title: "Traffic Calming",
+          title: "Traffic calming",
           body: [
-            "The dirty one. Counts stored as strings, district names in mixed " +
-              "case, and sentinel text sitting in data fields. Rows without a " +
-              "real install date were dropped rather than backfilled with " +
-              "invented timestamps, which meant dropping about 85 percent of " +
-              "them.",
+            "Counts arrived as text, district names used inconsistent " +
+              "capitalization, and some fields contained special placeholder " +
+              "values. I left out rows without a real installation date " +
+              "rather than invent one. That meant dropping about 85 percent of the rows.",
           ],
         },
         {
-          title: "Traffic Cameras",
+          title: "Traffic cameras",
           body: [
-            "Not events at all, because they carry no real timestamp. They " +
-              "became a reference table instead, with a regression test " +
-              "asserting a camera can never leak into the event stream.",
+            "Camera records have no real date or time, so I stored them in a " +
+              "reference table instead of treating them as events. An automated " +
+              "test checks that camera records never enter the event data.",
           ],
         },
         {
-          title: "Traffic Volumes",
+          title: "Traffic volumes",
           body: [
             `${f.trafficSessions.value} traffic-count sessions going back to ` +
-              "1993. A speed measure is emitted only where the survey actually " +
-              "measured speed, never as a zero standing in for silence.",
+              "1993. The output includes speed only when the survey measured " +
+              "it. A missing measurement never becomes a speed of zero.",
           ],
         },
         {
-          title: "Cycling Network",
+          title: "Cycling network",
           body: [
-            "Line geometry and install years for the city's bike " +
-              "infrastructure, with segment lengths derived in metres from the " +
-              "geometry rather than trusted from a column.",
+            "Map lines and installation years describe the city's bike " +
+              "infrastructure. I calculated section lengths in metres from " +
+              "the mapped lines instead of relying on a supplied length column.",
           ],
         },
         {
-          title: "Bike Share Ridership",
+          title: "Bike Share ridership",
           body: [
             `About ${f.bikeTrips.value} trips a year, delivered as zip archives ` +
-              "and streamed row by row so the ingestor never holds a file in " +
-              "memory. Trips anchor to their origin station, with member type " +
-              "and bike model kept as dimensions.",
+              "and read one row at a time so a whole file never needs to fit " +
+              "in memory. Each trip links to its starting station and keeps " +
+              "its membership type and bike model for later comparisons.",
           ],
         },
         {
-          title: "Road Restrictions",
+          title: "Road restrictions",
           body: [
-            "A live JSON feed that emits invalid escape sequences. Parsed " +
-              "defensively, and only rows carrying real timestamps become " +
-              "events.",
+            "A live JSON data feed sometimes contains incorrectly escaped " +
+              "characters. The importer handles those formatting errors. " +
+              "Only rows with real dates and times become events.",
           ],
         },
       ],
@@ -131,48 +132,48 @@ export const civicDataCase: CaseStudy = {
     {
       kind: "prose",
       body: [
-        "One structural decision came out of review. Cameras have no timestamp, " +
-          "so forcing them into the event stream would have been a lie told in " +
-          "SQL. I built a reference-table pattern instead, and derived each " +
-          "camera's ward with a point-in-polygon lookup against the city's " +
-          `${f.wards.value} ward boundary file, written with the standard ` +
-          "library. Cross-checked against shapely at full agreement, and it " +
-          "added no new dependency to the project.",
+        "A review changed how I handled cameras. Without installation dates, " +
+          "they belong in a reference table. I also worked out each camera's " +
+          "ward by checking which boundary contains its map location, using " +
+          `the city's ${f.wards.value} ward boundary file. I wrote this ` +
+          "point-in-polygon check with Python's built-in tools. Its results " +
+          "matched the Shapely mapping library on the comparison sample, " +
+          "without adding a new software dependency.",
       ],
     },
     {
       kind: "list",
-      heading: "Data-quality calls I would defend in review",
+      heading: "Rules the software checks",
       style: "cards",
       items: [
         {
           title: "Drop undated rows",
           body: [
-            "If a row has no real timestamp, it does not become an event. No " +
-              "backfilled dates and no invented history, even when that means " +
-              "dropping most of a dataset.",
+            "If a row has no real timestamp, it does not become an event. " +
+              "The importer never invents a date, even when that means " +
+              "leaving out most of a dataset.",
           ],
         },
         {
-          title: "Write nothing, not zero",
+          title: "Keep missing measurements missing",
           body: [
-            "A measure is emitted only where the source actually measured " +
-              "something. A camera with no view in a direction and a count " +
-              "session that never recorded speed both write null, so nothing " +
-              "downstream can mistake absence for a reading of zero.",
+            "The output includes a measurement only when the source measured " +
+              "something. For a camera with no view in a direction, or a " +
+              "traffic survey that never measured speed, the measure stays " +
+              "empty (null). Later calculations cannot mistake it for zero.",
           ],
         },
         {
-          title: "Stable IDs from real fields",
+          title: "Keep the same record IDs on every run",
           body: [
-            "Event IDs are hashes of the fields that make a record what it is, " +
-              "not the portal's row numbers, which change between exports. " +
-              "Rerunning produces the same IDs instead of a second copy of " +
-              "everything.",
+            "A hash function turns the fields that identify an event into a " +
+              "repeatable ID. The portal's row numbers can change between " +
+              "downloads. Using the event fields keeps IDs stable and avoids " +
+              "duplicate records when the importer runs again.",
           ],
         },
         {
-          title: "Sentinels carry meaning",
+          title: "Preserve what special values mean",
           body: [
             "In one dataset the string \"None\" means the camera has no view in " +
               "that direction. That is a fact about the camera, not a missing " +
@@ -183,41 +184,48 @@ export const civicDataCase: CaseStudy = {
     },
     {
       kind: "prose",
-      heading: "The signal engine",
+      heading: "Finding trends in 311 requests",
       body: [
-        `Mid-placement I took on the largest piece of the work: turning ` +
+        `The largest part of the work used ` +
           `${f.years311.value} of Toronto 311 service requests, roughly ` +
-          `${f.rows311.value} rows a year from 2018 through 2025, into signals a ` +
-          "non-technical audience can act on. I wrote it as a self-contained " +
-          "engine using only the standard library: complaint categories rising " +
-          "against a multi-year baseline, drifting locations, repeat-complaint " +
-          "clusters, early-warning flags, and the top hotspot micro-areas with " +
-          "their growth and category breakdown. Three JSON bundles out, each " +
-          "with a written contract for the engineer consuming it, and " +
-          "byte-identical output on every rerun.",
-        "The part I am proudest of came from checking my own output against the " +
-          "raw public data instead of trusting it. That caught two artifacts " +
-          "that would have shipped a false story. A city division had been " +
-          "renamed partway through the archive, which fabricated a brand new " +
-          "complaint category out of nothing; mapped historically, the real " +
-          `signal was a ${f.renameRise.value} rise. And a run of pandemic-era ` +
-          "months with zero counts was inflating one category's growth from a " +
-          `real ${f.covidReal.value} to a reported ${f.covidReported.value}. Both ` +
-          "fixes shipped in the final bundles.",
+          `${f.rows311.value} rows a year from 2018 through 2025, to find ` +
+          "patterns in residents' service requests. Using only Python's built-in " +
+          "tools, I checked which complaint types were rising compared with " +
+          "earlier years, where reports were shifting, and where complaints " +
+          "kept recurring. The output includes early-warning flags and the " +
+          "small areas with the strongest concentrations, broken down by " +
+          "growth and complaint type. I delivered three JSON data bundles " +
+          "with documented formats for the next engineer. Every rerun produces exactly the same files.",
+        "Checking the results against the raw public data caught two mistakes " +
+          "that would have told the wrong story. A city division changed its " +
+          "name partway through the archive, making an existing complaint " +
+          "category look new. After matching the old and new names, the real " +
+          `increase was ${f.renameRise.value}. Pandemic-era months with zero ` +
+          "counts also inflated one category's growth from " +
+          `${f.covidReal.value} to ${f.covidReported.value}. I corrected both ` +
+          "problems in the final data bundles.",
       ],
     },
     {
       kind: "stat",
-      heading: "By the numbers",
+      heading: "Scale at handoff",
       items: [
-        { label: "Datasets engineered", fact: f.datasets, note: "six mobility, plus the 311 archive" },
-        { label: "Lines across 3 PRs", fact: f.lines },
-        { label: "Tests passing", fact: f.tests },
+        { label: "Transport data importers", fact: f.datasets, note: "plus a separate tool to analyse the 311 archive" },
+        { label: "Lines across 3 code submissions", fact: f.lines },
         { label: "Rows of public data", fact: f.rows },
       ],
       note:
-        "Every ingestor shipped with a walkthrough doc, a source contract, a " +
-        "committed sample, and contract-compliance tests, all lint clean.",
+        "Each importer came with documentation, a description of the expected source format, " +
+        "sample data and tests that check those expectations. These figures describe what I handed over, not a current live system.",
+    },
+    {
+      kind: "callout",
+      heading: "What a rise in complaints tells us",
+      tone: "limitation",
+      body: [
+        "More recorded complaints do not necessarily mean conditions got worse, or tell us why. Category names, missing months and changes in how people report problems all affect the figures. The output shows the comparison period and calculation so a reader can check the trend.",
+        "The public case study covers my contribution and publicly available source data. It omits client identifiers and private implementation details.",
+      ],
     },
     {
       kind: "quote",
@@ -235,9 +243,9 @@ export const civicDataCase: CaseStudy = {
       kind: "prose",
       heading: "Where it stands",
       body: [
-        "The placement wrapped in early July 2026 with everything I built " +
-          "delivered and handed off. What the client does with it from here is " +
-          "their story to tell, not mine.",
+        "The placement ended in early July 2026. I submitted the importers for " +
+          "review and handed over the trend data and documentation. " +
+          "I cannot verify a later rollout or any business results from that work.",
       ],
     },
   ],

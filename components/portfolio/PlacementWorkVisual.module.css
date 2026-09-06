@@ -1,0 +1,25 @@
+.visual { margin: 24px 0 0; padding: 24px; min-width: 0; color: #e1e9ef; background: #0b1b2a; border: 1px solid #385166; }
+.flow { display: grid; gap: 18px; padding: 0 0 25px; margin: 0; list-style: none; border-bottom: 1px solid #385166; }
+.flow li { display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 13px; align-items: start; }
+.flowMark { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; border: 1px solid #6f8a9d; border-radius: 50%; color: #c2dbe9; font-size: 11px; }
+.flow li > div { display: grid; gap: 3px; padding-top: 2px; }
+.flow strong { font-size: 14px; line-height: 22px; font-weight: 500; }
+.flow li > div > span { color: #a6becf; font-size: 12px; line-height: 20px; }
+.example { padding-top: 24px; }
+.example h3 { font-family: var(--font-fraunces), serif; font-size: clamp(26px, 2.2vw, 32px); line-height: 1.17; letter-spacing: -.02em; font-weight: 400; margin: 0 0 11px; text-wrap: balance; }
+.context { font-size: 12px; line-height: 20px; color: #a6becf; margin: 0 0 23px; }
+.comparison { display: grid; gap: 20px; }
+.barRow > div:first-child { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 9px; }
+.barRow span { font-size: 12px; line-height: 19px; }
+.barRow strong { font-size: 26px; font-weight: 400; line-height: 1; font-variant-numeric: tabular-nums; }
+.track { height: 14px; border-left: 1px solid #a6becf; background: #152d40; }
+.track > span { display: block; height: 100%; }
+.beforeBar { background: repeating-linear-gradient(135deg, #809bad 0, #809bad 2px, #183247 2px, #183247 5px); }
+.afterBar { background: #c2dbe9; }
+.explanation { font-size: 13px; line-height: 22px; color: #cbd7df; margin: 22px 0 0; }
+.visual figcaption { margin-top: 24px; padding-top: 15px; border-top: 1px solid #385166; color: #a6becf; font-size: 11px; line-height: 18px; }
+@media (max-width: 599px) {
+  .visual { padding: 20px 18px; }
+  .flow { gap: 15px; }
+  .example h3 { font-size: 27px; }
+}

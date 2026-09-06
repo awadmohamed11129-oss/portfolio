@@ -1,0 +1,161 @@
+.photographic-journey[data-enhanced="true"] { height: 800vh; height: 800svh; }
+.photographic-journey .scene { position: fixed; inset: 0; overflow: hidden; pointer-events: none; }
+.photographic-journey .room, .photographic-journey .exterior, .photographic-journey .aerial, .photographic-journey .light, .photographic-journey .shade { position: absolute; inset: 0; }
+.photographic-journey .room { will-change: opacity; }
+.photographic-journey .room img, .photographic-journey .house-plane { position: absolute; left: 50%; top: 50%; width: max(100vw, 177.683vh); height: max(56.28vw, 100vh); will-change: transform; }
+.photographic-journey .room img { object-fit: fill; }
+.photographic-journey #exterior-photo { position: absolute; inset: 0; width: 100%; height: 100%; }
+.photographic-journey .window-aperture { position: absolute; left: 46.650718%; top: 24.442083%; width: 11.303828%; height: 17.109458%; overflow: hidden; }
+.photographic-journey .window-aperture img { position: absolute; height: 156.572379%; width: 236.987736%; max-width: none; left: -71.541258%; top: -23.793677%; object-fit: fill; }
+.photographic-journey .aerial { display: none; }
+.photographic-journey .aerial-image { position: absolute; width: max(130vw, 166.4vh); height: max(78.125vw, 100vh); left: 50%; top: 50%; display: grid; grid-template-columns: repeat(8, 1fr); grid-template-rows: repeat(5, 1fr); transform-origin: 50% 50%; will-change: transform; filter: saturate(.83) brightness(.88); }
+.photographic-journey .aerial-image img { width: 100%; height: 100%; display: block; }
+.photographic-journey .light { background: #e8eef0; opacity: 0; pointer-events: none; }
+.photographic-journey .shade { background: linear-gradient(180deg, rgb(8 20 29 / .64), transparent 24%, transparent 45%, rgb(8 20 29 / .55)); pointer-events: none; }
+.photographic-journey .introduction, .photographic-journey .arrival { position: fixed; z-index: 2; left: 6vw; bottom: 23vh; max-width: 420px; text-shadow: 0 2px 30px rgb(8 20 29 / .65); }
+.photographic-journey h1 { font-family: Georgia, serif; font-size: clamp(52px, 6vw, 96px); font-weight: 400; line-height: .96; letter-spacing: -.045em; margin: 0 0 22px; }
+.photographic-journey .introduction p { font-size: 15px; margin: 0 0 28px; }
+.photographic-journey .work-link { display: inline-flex; align-items: center; gap: 28px; min-height: 45px; border-bottom: 1px solid rgb(255 255 255 / .55); font-size: 15px; }
+.photographic-journey .work-link span { font-size: 22px; }
+.photographic-journey .arrival { opacity: 0; pointer-events: none; }
+.photographic-journey .arrival p { font-family: Georgia, serif; font-size: clamp(32px, 4vw, 58px); line-height: 1.05; margin: 0 0 26px; max-width: 350px; }
+.photographic-journey .arrival:not([inert]) { pointer-events: auto; }
+.photographic-journey .credits { position: fixed; z-index: 6; right: 22px; bottom: 10px; max-width: min(350px, 90vw); color: #e8eef0; font-size: 10px; }
+.photographic-journey .credits summary { cursor: pointer; text-align: right; padding: 4px; text-shadow: 0 1px 8px #18242b; }
+.photographic-journey .credits p { line-height: 1.6; padding: 15px; border-radius: 5px; background: #263947; }
+.photographic-journey .credits a { text-decoration: underline; }
+.photographic-journey .loading { position: fixed; inset: 0; z-index: 3; display: grid; place-content: center; background: #263947; color: #e8eef0; font-size: 14px; }
+.photographic-journey .loading[hidden] { display: none; }
+.photographic-journey .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.photographic-journey .no-script { position: fixed; z-index: 10; left: 5vw; top: 150px; max-width: 85vw; }
+@media (max-width: 700px) {
+  .photographic-journey .introduction, .photographic-journey .arrival { left: 26px; bottom: 25vh; max-width: 300px; }
+  .photographic-journey h1 { font-size: 60px; margin-bottom: 17px; }
+  .photographic-journey .introduction p { font-size: 13px; margin-bottom: 20px; }
+  .photographic-journey .work-link { font-size: 14px; }
+  .photographic-journey .credits { right: 15px; }
+}
+@media (prefers-reduced-motion: reduce) { .photographic-journey[data-enhanced="true"] { height: 200svh; } }
+.photographic-journey [hidden] { display: none !important; }
+.photographic-journey, #main-content { -webkit-tap-highlight-color: transparent; }
+.photographic-journey #film-hint { position: fixed; z-index: 5; bottom: max(30px, env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); padding: 9px 14px; border-radius: 20px; background: rgb(8 20 29 / .65); color: #fff; font-size: 12px; white-space: nowrap; pointer-events: none; }
+.photographic-journey #hero-scene, .photographic-journey .scene__canvas, .photographic-journey .scene__veil, .photographic-journey .plates { position: fixed; inset: 0; width: 100%; height: 100%; }
+.photographic-journey #hero-scene { overflow: hidden; background: #020307; touch-action: pan-y; }
+.photographic-journey #hero-scene[data-can-drag="true"] { cursor: grab; }
+.photographic-journey #hero-scene[data-dragging="true"] { cursor: grabbing; }
+.photographic-journey #hero-scene[data-touch-drag="true"] { touch-action: none; }
+.photographic-journey .scene__canvas { display: block; pointer-events: none; }
+.photographic-journey .scene__canvas--space { z-index: 0; }
+.photographic-journey .scene__canvas--ground { z-index: 1; }
+.photographic-journey .plates { z-index: 2; pointer-events: none; }
+.photographic-journey .scene__veil { z-index: 3; pointer-events: none; background: radial-gradient(circle at 50% 46%, transparent 48%, rgba(2,3,7,.22) 84%, rgba(2,3,7,.6) 118%), linear-gradient(180deg, rgba(2,3,7,.14), transparent 26%, transparent 74%, rgba(2,3,7,.3)); }
+.photographic-journey .arrival { bottom: 29vh; }
+@media(max-width:700px) { .photographic-journey .arrival { bottom: 190px; } .photographic-journey .arrival p { display: none; } }
+/* The opening keeps the approved photographic framing; content keeps its own reading layout. */
+html:has(.photographic-journey) { scroll-behavior: auto; }
+body:has(.photographic-journey) { background: #263947; }
+.destination-column[data-destination="home"] .site-footer { display: none; }
+.site-header { position: fixed; z-index: 40; left: 3.5vw; right: 3.5vw; top: max(26px, env(safe-area-inset-top)); padding: 0; min-height: 0; background: transparent; backdrop-filter: none; align-items: flex-start; text-shadow: 0 1px 12px #18242b; }
+.site-header .site-name { font-size: 18px; font-weight: 600; letter-spacing: 0; }
+.site-header .site-name span { font-size: 12px; margin-top: 4px; }
+.site-header nav ul { margin: 0; padding-top: 7px; font-size: 14px; gap: clamp(16px, 2.1vw, 34px); }
+.photographic-journey { height: 100svh; color: #fff; font-family: "Segoe UI", sans-serif; touch-action: manipulation; }
+.photographic-journey .scene { z-index: 1; }
+.photographic-journey #hero-scene { z-index: 0; }
+.photographic-journey .room img { max-width: none; transform: translate(-51.29%, -47.13%) scale(2.15); transform-origin: 51.29% 47.13%; }
+.photographic-journey[data-enhanced="true"] .loading { display: grid; }
+.photographic-journey .loading[hidden] { display: none; }
+.photographic-journey .journey-error { inset: auto 5vw auto; top: 190px; max-width: 440px; padding: 16px; border-radius: 5px; line-height: 1.6; }
+.photographic-journey .work-link, .photographic-journey button { touch-action: manipulation; }
+.photographic-journey .introduction h1 { font-family: Georgia, serif; }
+.photographic-journey .introduction[inert] { visibility: hidden; }
+.photographic-journey :focus-visible { outline: 2px solid white; outline-offset: 5px; }
+.photographic-journey .credits summary { min-height: 28px; }
+@media (max-width: 767px) {
+  .site-header { left: 22px; right: 22px; top: max(22px, env(safe-area-inset-top)); gap: 17px; }
+  .site-header .site-name { font-size: 17px; }
+  .site-header .site-name span { display: inline; margin-left: 13px; font-size: 11px; }
+  .site-header nav ul { justify-content: space-between; font-size: 12px; gap: 8px; padding-top: 0; }
+}
+@media (max-width: 700px) {
+  .photographic-journey .room img { transform: translate(-51.29%, -47.13%) scale(1.72); }
+}
+@media (max-height: 560px) and (min-width: 701px) {
+  .photographic-journey .introduction { bottom: 25vh; }
+  .photographic-journey .introduction h1 { font-size: 48px; margin-bottom: 10px; }
+  .photographic-journey .introduction p { margin-bottom: 10px; }
+}
+
+.photographic-journey .loading { display: none; }
+.photographic-journey[data-enhanced="true"] .loading:not([hidden]) { display: grid; }
+
+
+/* One fixed world; a reading column floats over its left edge. */
+:root { --column: 44vw; --column-pad: clamp(24px, 6vw, 100px); --scrim: 100px; --scene-ink: #071321; }
+html { scroll-behavior: auto; }
+body:has(.photographic-journey) { background: #020307; }
+.photographic-journey, .photographic-journey[data-enhanced="true"] { height: auto; }
+#film-runway { height: 800svh; pointer-events: none; }
+#main-content.destination-column { width: var(--column); min-height: 100svh; margin: 0; padding: 142px 28px 0 var(--column-pad); position: relative; z-index: 2; pointer-events: none; background: transparent; border: 0; box-shadow: none; isolation: isolate; }
+.destination-column > * { pointer-events: auto; }
+#main-content.destination-column > .home-film { pointer-events: none; }
+.photographic-journey .introduction:not([inert]) { pointer-events: auto; }
+.destination-column::before { content: ""; position: fixed; z-index: -1; inset: 0 auto 0 0; width: calc(var(--column) + var(--scrim)); background: linear-gradient(90deg, rgb(7 19 33 / .97) 0, rgb(7 19 33 / .94) calc(100% - var(--scrim)), rgb(7 19 33 / 0) 100%); pointer-events: none; }
+.destination-column > :not(.site-footer) { opacity: 1; transition: opacity 250ms ease; }
+.destination-column[data-phase="leave"] > :not(.site-footer) { opacity: 0; transition-duration: 300ms; }
+.destination-column[data-phase="empty"] > :not(.site-footer) { opacity: 0; transition: none; pointer-events: none; }
+.destination-column[data-phase="arrive"] > :not(.site-footer) { opacity: 1; }
+.destination-column[data-phase="empty"] .site-footer { opacity: 0; pointer-events: none; }
+#main-content.destination-column[data-destination="home"] { width: 100%; padding: 0; }
+.destination-column[data-destination="home"]::before { display: none; }
+.destination-column .portfolio-page { width: 100%; padding: 0 0 75px; margin: 0; }
+.destination-column .site-footer { display: block; padding: 25px 0 72px; border: 0; background: transparent; font-size: 11px; }
+.destination-column .site-footer nav { margin: 20px 0; gap: 12px 22px; }
+.destination-column .site-footer > p { color: #8ea2b1; }
+.site-header, .site-header:not([data-home="true"]) { border: 0; background: transparent; backdrop-filter: none; }
+.site-header nav ul { font-size: 11px; letter-spacing: .13em; text-transform: uppercase; }
+.site-header .site-name { letter-spacing: -.02em; }
+.site-header .site-name span { letter-spacing: 0; }
+.photographic-journey #mobile-drag { position: fixed; z-index: 5; left: 22px; bottom: max(18px, env(safe-area-inset-bottom)); min-height: 44px; padding: 10px 14px; border: 1px solid rgb(255 255 255 / .3); border-radius: 999px; color: #fff; background: rgb(8 20 29 / .55); font-size: 11px; }
+@media (max-width: 1023px) {
+  :root { --column: 100vw; --column-pad: clamp(24px, 6vw, 56px); }
+  #main-content.destination-column { padding: max(270px, 36svh) var(--column-pad) 0; }
+  .destination-column::before { width: 100%; background: linear-gradient(180deg, rgb(7 19 33 / .08), rgb(7 19 33 / .35) 25svh, rgb(7 19 33 / .94) 48svh, rgb(7 19 33 / .97)); }
+  .site-header nav ul { font-size: 10px; letter-spacing: .07em; gap: 15px; }
+  .photographic-journey .credits { max-width: min(300px, 75vw); }
+}
+@media (max-width: 767px) {
+  .site-header { gap: 13px; }
+  .site-header nav ul { font-size: 9px; gap: 6px; letter-spacing: .05em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #film-runway { height: 200svh; }
+  .destination-column > * { transition: none; }
+}
+
+/* Keep navigation readable as bright project photography scrolls beneath it. */
+.site-header[data-home="false"]::before {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  inset: 0 0 auto;
+  height: calc(max(26px, env(safe-area-inset-top)) + 130px);
+  background: linear-gradient(180deg, rgb(2 7 14 / .98) 0%, rgb(2 7 14 / .93) 60%, rgb(2 7 14 / .5) 78%, rgb(2 7 14 / 0) 100%);
+  pointer-events: none;
+}
+
+/* About keeps its room beside the biography; the two previews share one layout. */
+html[data-destination="about"] #hero-scene,
+html[data-destination="about"] .photographic-journey .scene,
+html[data-destination="about"] #mobile-drag { visibility: hidden; }
+html[data-returning="true"] #main-content { background: transparent; }
+html[data-returning="true"] .destination-column::before { opacity: 0; }
+html[data-returning="true"] #main-content > *, html[data-returning="true"] #mobile-drag { visibility: hidden; }
+@media (max-width: 1023px) {
+  #main-content.destination-column[data-destination="about"] { padding-top: 108px; background: #071321; }
+  .destination-column[data-destination="about"]::before { background: #071321; }
+  .destination-column[data-destination="about"] .portfolio-page > header,
+  .destination-column[data-destination="about"] .portfolio-page > section,
+  .destination-column[data-destination="about"] .portfolio-page > p,
+  .destination-column[data-destination="about"] .site-footer { position: relative; z-index: 1; background: #071321; }
+}

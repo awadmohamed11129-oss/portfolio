@@ -1,0 +1,26 @@
+.visual { margin: 28px 0 32px; min-width: 0; }
+.heading { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 13px; color: #e1e9ef; font-size: 13px; line-height: 1.5; }
+.heading > span:last-child { font-size: 11px; color: #a6becf; white-space: nowrap; }
+.heading button { font: inherit; font-size: 11px; color: #d1dde6; background: transparent; border: 0; min-height: 44px; padding: 8px 0 8px 12px; text-decoration: underline; text-underline-offset: 4px; white-space: nowrap; cursor: zoom-in; }
+.heading button:focus-visible { outline: 2px solid #8ed9eb; outline-offset: 4px; }
+.comparison { position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; background: #03080c; isolation: isolate; }
+.source, .result, .result img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.result { background: #03080c; }
+.labels { position: absolute; inset: 12px 12px auto; display: flex; justify-content: space-between; pointer-events: none; }
+.labels span { background: rgb(3 8 12 / .86); color: white; padding: 7px 10px; font-size: 10px; line-height: 1.4; }
+.divider { position: absolute; top: 0; bottom: 0; width: 2px; background: white; transform: translateX(-50%); pointer-events: none; }
+.divider span { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; background: #f8fafc; color: #182d3b; box-shadow: 0 2px 20px #0006; font-size: 21px; letter-spacing: 4px; padding-left: 4px; white-space: nowrap; }
+.comparison input { appearance: none; position: absolute; inset: 0; margin: 0; padding: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; touch-action: pan-y; }
+.comparison:has(input:focus-visible) { outline: 3px solid #8ed9eb; outline-offset: 5px; }
+.samples { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 10px; margin-top: 16px; }
+.samples button { display: flex; flex-direction: column; gap: 7px; padding: 0 0 8px; text-align: left; background: none; border: 0; border-bottom: 2px solid transparent; color: #a6becf; font: inherit; font-size: 11px; line-height: 1.4; cursor: pointer; }
+.samples button img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; opacity: .55; }
+.samples button[aria-pressed=true] { border-color: #8ed9eb; color: #fff; }
+.samples button[aria-pressed=true] img, .samples button:hover img { opacity: 1; }
+.samples button:focus-visible { outline: 2px solid #8ed9eb; outline-offset: 4px; }
+.description { font-size: 14px; line-height: 1.65; margin: 18px 0 0; color: #d1dde6; }
+.caption { font-size: 11px; line-height: 1.7; color: #a6becf; margin: 13px 0 0; }
+.fullSize { display: flex; flex-wrap: wrap; gap: 0 24px; margin-top: 8px; }
+.fullSize a { display: inline-block; min-height: 44px; padding: 10px 0; color: #d1dde6; font-size: 12px; text-decoration: underline; text-underline-offset: 4px; }
+.srOnly { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media(max-width: 599px) { .heading { flex-wrap: wrap; gap: 3px 12px; } .samples { gap: 8px; } .samples button { font-size: 10px; } }

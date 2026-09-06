@@ -1,0 +1,106 @@
+.pageHeading { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); align-items: end; gap: clamp(28px, 6vw, 90px); padding-bottom: 55px; }
+.pageHeading h1 { font-size: clamp(62px, 8.3vw, 120px); font-weight: 500; letter-spacing: -.065em; line-height: .98; margin: 0; }
+.pageHeading > p { max-width: 46ch; color: #c5d8e6; font-size: clamp(16px, 1.5vw, 20px); line-height: 1.75; margin: 0; padding-bottom: 3px; }
+.workBrowser { min-width: 0; }
+.projectIndex, .experienceActions { display: flex; flex-wrap: wrap; gap: 10px 32px; padding: 0 0 32px; border-bottom: 1px solid #3c5568; }
+.projectIndex a, .experienceActions a { font-size: 13px; padding: 12px 0; color: #c7dfef; text-decoration: underline; text-underline-offset: 6px; }
+.projectGallery { display: grid; }
+.project { min-width: 0; scroll-margin-top: 130px; padding: clamp(55px, 7vw, 100px) 0; border-bottom: 1px solid #3c5568; }
+.hasImage { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.4fr); align-items: center; gap: clamp(30px, 5vw, 76px); }
+.leadProject { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); row-gap: 45px; }
+.leadProject .projectDescription { font-size: clamp(17px, 1.6vw, 21px); line-height: 1.75; }
+.projectCopy { min-width: 0; }
+.context { margin: 0; color: #b8cddd; font-size: 13px; line-height: 1.7; }
+.project h2 { margin: 22px 0 24px; font-family: var(--font-fraunces), serif; font-size: clamp(43px, 5.5vw, 77px); font-weight: 400; letter-spacing: -.025em; line-height: 1.03; text-wrap: balance; }
+.leadProject h2 { font-size: clamp(58px, 7vw, 98px); }
+.project h2 a { text-decoration: none; }
+.project h2 a:hover { color: #a6d8ee; }
+.projectDescription { max-width: 52ch; color: #d1e0eb; font-size: 16px; line-height: 1.85; margin: 0; }
+.projectTools { display: flex; flex-wrap: wrap; gap: 7px 18px; list-style: none; padding: 0; margin: 25px 0 18px; font-size: 12px; line-height: 1.6; color: #b8cddd; }
+.caseLink { display: inline-block; font-size: 14px; line-height: 1.6; padding: 13px 0; text-decoration: underline; text-underline-offset: 7px; text-decoration-thickness: 1px; }
+.caseLink:hover { color: #a6d8ee; }
+.projectFigure { min-width: 0; margin: 0; }
+.imageLink { display: block; position: relative; overflow: hidden; border-radius: 5px; background: #e7eef3; }
+.imageLink img { display: block; width: 100%; height: auto; }
+.imageAction { display: block; padding: 15px 18px; background: #122c40; color: #f0f5f8; font-size: 12px; }
+.imageLink:hover .imageAction { background: #19405b; }
+.projectFigure figcaption { color: #aac1d2; font-size: 12px; line-height: 1.75; max-width: 70ch; margin: 15px 0 0; }
+.processPreview { grid-column: 1 / -1; padding-top: 12px; }
+.processPreview > p { font-size: 12px; color: #b8cddd; margin: 0 0 22px; }
+.processPreview ol { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); list-style: none; padding: 0; margin: 0; }
+.processPreview li { position: relative; border-top: 1px solid #55768c; padding: 17px 22px 0 0; color: #cadfec; font-size: 12px; line-height: 1.7; }
+.processPreview li::before { content: ""; position: absolute; width: 6px; height: 6px; border-radius: 50%; background: #a6d8ee; top: -4px; left: 0; }
+.textProject .projectCopy { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.4fr); gap: 0 clamp(30px, 5vw, 76px); align-items: start; }
+.textProject .context { grid-column: 1; }
+.textProject h2 { grid-column: 1; grid-row: 2 / 5; margin-bottom: 0; max-width: 10ch; }
+.textProject .projectDescription { grid-column: 2; grid-row: 2; max-width: 62ch; font-size: clamp(18px, 1.7vw, 23px); line-height: 1.7; margin-top: 22px; }
+.textProject .projectTools, .textProject .caseLink { grid-column: 2; }
+.textProject .caseLink { justify-self: start; }
+.coursework { padding-top: 45px; }
+.coursework article { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.4fr); gap: clamp(25px, 5vw, 76px); }
+.coursework h2 { margin: 14px 0 0; max-width: 18ch; font-size: 24px; font-weight: 500; line-height: 1.35; letter-spacing: -.03em; }
+.coursework article > div > p:not(.context) { font-size: 14px; line-height: 1.8; color: #c2d4e1; margin: 0; max-width: 65ch; }
+.coursework article > div > .courseworkNote { margin-top: 14px; font-size: 12px; color: #acc4d5; }
+.experienceActions { justify-content: flex-end; }
+.role { display: grid; grid-template-columns: minmax(0, .65fr) minmax(0, 1.65fr); gap: clamp(30px, 5vw, 76px); padding: 60px 0; border-bottom: 1px solid #3c5568; }
+.rolePeriod p { margin: 0; color: #d2e3ee; font-size: 14px; line-height: 1.75; }
+.rolePeriod p + p { color: #a8c0d3; font-size: 12px; margin-top: 7px; }
+.roleBody { min-width: 0; }
+.company { font-size: 14px; line-height: 1.6; color: #c3dfef; margin: 0 0 16px; }
+.role h2 { font-size: clamp(29px, 3.3vw, 46px); font-weight: 500; letter-spacing: -.045em; line-height: 1.16; max-width: 25ch; margin: 0 0 27px; text-wrap: balance; }
+.roleBody ul { list-style: disc; padding: 0 0 0 19px; margin: 0; max-width: 67ch; color: #d0e0eb; }
+.roleBody li { font-size: 16px; line-height: 1.85; padding-left: 5px; margin-bottom: 18px; }
+.roleBody li::marker { color: #6e94ae; font-size: 11px; }
+.roleBody li:last-child { margin-bottom: 0; }
+.roleBody > .caseLink { margin-top: 22px; }
+.skills { display: grid; grid-template-columns: minmax(0, .65fr) minmax(0, 1.65fr); gap: clamp(30px, 5vw, 76px); padding-top: 85px; scroll-margin-top: 130px; }
+.skillsHeading h2 { font-family: var(--font-fraunces), serif; font-size: clamp(35px, 4vw, 53px); font-weight: 400; line-height: 1.08; margin: 0 0 20px; }
+.skillsHeading p { color: #b4cddd; font-size: 14px; line-height: 1.8; max-width: 27ch; margin: 0; }
+.skills dl { margin: 0; }
+.skills dl > div { padding: 0 0 25px; margin-bottom: 25px; border-bottom: 1px solid #304b60; }
+.skills dt { color: #e0edf5; font-size: 15px; font-weight: 500; margin-bottom: 14px; }
+.skills dd { margin: 0; }
+.skills dd ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.skills dd li { font-size: 13px; line-height: 1.65; color: #b6cddd; }
+.nextStep { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-top: 70px; padding-top: 30px; border-top: 1px solid #3c5568; }
+.nextStep p { font-family: var(--font-fraunces), serif; font-size: clamp(28px, 3vw, 40px); line-height: 1.2; margin: 0; }
+.srOnly { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 899px) {
+  .pageHeading { grid-template-columns: 1fr; gap: 30px; padding-bottom: 35px; }
+  .pageHeading > p { max-width: 54ch; }
+  .hasImage { grid-template-columns: 1fr; gap: 32px; }
+  .projectDescription { max-width: 62ch; }
+  .projectFigure { max-width: 750px; }
+  .leadProject h2 { font-size: clamp(58px, 9vw, 80px); }
+  .textProject .projectCopy { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: 0 30px; }
+  .project h2 { font-size: clamp(42px, 7vw, 64px); }
+  .role, .skills { grid-template-columns: minmax(0, .6fr) minmax(0, 1.4fr); gap: 30px; }
+}
+@media (max-width: 599px) {
+  .pageHeading h1 { font-size: clamp(50px, 12vw, 70px); }
+  .projectIndex { gap: 3px 24px; padding-bottom: 23px; }
+  .projectIndex a { font-size: 12px; }
+  .project { padding: 44px 0; }
+  .project h2 { margin-top: 17px; }
+  .projectDescription { font-size: 15px; line-height: 1.8; }
+  .textProject .projectCopy { display: block; }
+  .textProject h2 { max-width: none; margin-bottom: 24px; }
+  .textProject .projectDescription { font-size: 17px; }
+  .imageAction { font-size: 11px; padding: 13px; }
+  .processPreview ol { grid-template-columns: 1fr; padding-left: 3px; }
+  .processPreview li { padding: 0 0 17px 20px; border-top: 0; border-left: 1px solid #55768c; }
+  .processPreview li::before { top: 7px; left: -3.5px; }
+  .processPreview li:last-child { padding-bottom: 0; }
+  .coursework article { grid-template-columns: 1fr; gap: 20px; }
+  .coursework h2 { max-width: none; }
+  .role, .skills { grid-template-columns: 1fr; gap: 28px; }
+  .role { padding: 40px 0; }
+  .rolePeriod { display: flex; flex-wrap: wrap; align-items: baseline; gap: 3px 20px; }
+  .rolePeriod p + p { margin-top: 0; }
+  .roleBody li { font-size: 15px; }
+  .company { font-size: 13px; }
+  .experienceActions { justify-content: flex-start; gap: 10px 27px; }
+  .skills { padding-top: 55px; }
+  .skillsHeading p { max-width: 45ch; }
+  .nextStep { flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 40px; }
+}

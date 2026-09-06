@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { PHASE_DEVELOPMENT_SERVER } from "next/constants";
 
 // Vercel already sends Strict-Transport-Security, so it is not repeated here.
 // No Content-Security-Policy: Next inlines its bootstrap and flight payload, so a
@@ -20,4 +21,6 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default function config(phase: string): NextConfig {
+  return { ...nextConfig, distDir: phase === PHASE_DEVELOPMENT_SERVER ? ".next-dev" : ".next" };
+}

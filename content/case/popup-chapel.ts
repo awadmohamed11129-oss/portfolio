@@ -18,21 +18,26 @@ export const popupChapelCase: CaseStudy = {
   title: "Pop-Up Chapel Co.",
   eyebrow: "Consulting engagement, April to May 2026",
   summary:
-    `A ${f.hours.value} hour Riipen consulting project for a Canadian ` +
-    "micro-wedding company. I led the email and document-generation " +
-    `workstream: one booking goes in, ${f.docs.value} branded day-of documents ` +
-    "come out, plus a companion web tool the owner can run herself.",
+    `One booking produces ${f.docs.value} branded wedding-day documents. ` +
+    `I led the email and document work in this ${f.hours.value} hour Riipen ` +
+    "project for a Canadian small-wedding company, including a web tool for the owner.",
   metaDescription:
     `A ${f.hours.value} hour consulting project for a Canadian micro-wedding ` +
     `company. A Python pipeline that turns one booking into ${f.docs.value} ` +
-    "branded wedding-day documents, plus a live Next.js companion tool.",
+    "branded wedding-day documents, plus a Next.js companion tool.",
   links: [
-    { label: "Open the live tool", href: DIRECT.chapelTool, icon: "external" },
+    { label: "Open the companion tool", href: DIRECT.chapelTool, icon: "external" },
     {
       label: "Download a sample document",
       href: "/pdfs/popup-chapel-couples-info.pdf",
       icon: "download",
     },
+  ],
+  linkNote: "The companion tool and sample documents illustrate the 2026 engagement. The intake workflow and account-ownership handoff were not completed.",
+  overview: [
+    { label: "My role", value: "Led email communication and document generation in a three-student team" },
+    { label: "Built", value: "Python document generator and Next.js companion tool" },
+    { label: "Status", value: "Document generation delivered; booking intake and live access controls unfinished" },
   ],
   hero: {
     src: "/images/popup-chapel/live-site-home.png",
@@ -56,47 +61,46 @@ export const popupChapelCase: CaseStudy = {
   blocks: [
     {
       kind: "prose",
-      heading: "The engagement",
+      heading: "My part in the project",
       body: [
         `Pop-Up Chapel Co. runs small weddings across ${f.cities.value} Canadian ` +
           `cities. Through Riipen, a team of ${f.team.value} students took on a ` +
           `${f.hours.value} hour project to map how the company communicates with ` +
-          "its couples and prototype the automation that would save the most " +
-          "time. I led the email and document-generation workstream. My two " +
-          "teammates covered platform architecture and lead intake. April 3 to " +
-          `May 8, 2026, on a ${f.stipend.value} stipend. This was student ` +
-          "consulting work and I would not describe it as anything else.",
+          "its couples and build a prototype to generate documents. I led the " +
+          "email and document work. My two " +
+          "teammates covered the platform design and handling new enquiries. April 3 to " +
+          "May 8, 2026.",
       ],
     },
     {
       kind: "prose",
       heading: "The problem",
       body: [
-        `Every booking cost roughly ${f.manualHours.value} of manual document ` +
+        `The project estimate was roughly ${f.manualHours.value} of manual document ` +
           "work. Names, dates, package details and vendor assignments were " +
           "copied by hand into four separate templates, and the wording came " +
           "out slightly different every time. The owner wanted one booking to " +
           "produce every document for the day, in the company's own voice, " +
-          "without her having to proofread each one before it went out.",
+          "with less repeated editing before the documents could be reviewed.",
       ],
     },
     {
       kind: "prose",
-      heading: "The pipeline",
+      heading: "How a booking becomes documents",
       body: [
-        "A command-line tool takes one booking as JSON, validates it against " +
-          "Pydantic schemas, generates the copy that varies between weddings, " +
-          "renders Jinja2 templates against the company's brand stylesheet, and " +
-          `prints ${f.docs.value} documents through headless Playwright. About ` +
+        "A command-line tool reads one booking from a JSON data file. Pydantic " +
+          "checks the booking fields, then the tool generates the wording " +
+          "that varies between weddings. Jinja2 fills the company's branded " +
+          `templates, and an automated browser prints ${f.docs.value} documents ` +
+          `using Playwright. About ` +
           `${f.runtime.value} per booking.`,
-        "The schema layer maps one to one onto the Postgres columns the " +
-          "platform workstream was designing, so their database and my " +
-          "generator would not need a translation layer between them when the " +
-          "two halves met. The templates and stylesheet are shared with the web " +
-          "tool, which is what keeps the two outputs from drifting apart.",
-        "Copy generation calls a language model, but never depends on it. If " +
-          "the API is unavailable the pipeline falls back to deterministic " +
-          "wording and still produces the full document set, because a wedding " +
+        "The booking fields match the Postgres database columns my teammate " +
+          "was designing. That would let the database pass a booking to the " +
+          "generator without translating its format. The web tool uses the " +
+          "same document structure and branding to keep the set consistent.",
+        "A language model writes the variable wording. If that service is " +
+          "unavailable, fixed wording takes over and the tool still produces " +
+          "the full document set, because a wedding " +
           "on Saturday is not a good time to discover that an API key expired.",
       ],
     },
@@ -105,44 +109,45 @@ export const popupChapelCase: CaseStudy = {
       heading: "One booking to eight documents",
       id: "chapel-pipeline",
       note:
-        "The workstream I built. Database design, lead routing and billing " +
+        "The part I built. Database design, directing new enquiries and billing " +
         "belonged to other people on the same engagement.",
     },
     {
       kind: "prose",
       heading: "The companion tool",
       body: [
-        "The command line is fine for me and useless for the person who " +
-          "actually runs the business. So the second half is a small Next.js " +
+        "The owner needed to use it in a browser. The second half is a small Next.js " +
           "app on Vercel that reads bookings from a Google Sheet and rebuilds " +
           `any booking's documents in the browser, about ${f.webRuntime.value} ` +
-          `per run, ${f.zipFiles.value} files in the archive. Inputs are ` +
-          "validated on the way in, and every secret stays in server-side " +
-          "environment variables.",
+          `per run, ${f.zipFiles.value} files in the download. The app checks ` +
+          "booking fields before using them. Service credentials stay in the " +
+          "server's settings. That does not replace the unfinished access controls below.",
       ],
     },
     {
       kind: "callout",
-      heading: "What shipped and what did not",
+      heading: "What was delivered and what remains unfinished",
       tone: "limitation",
       body: [
-        "Cookie authentication and rate limiting were written and tested, and " +
-          "never switched on in production. An intake form got as far as a " +
-          "wizard shell with no live fields. The engagement's " +
+        "I wrote and tested cookie-based sign-in checks and limits on how " +
+          "often someone could call the tool, but never enabled them on the " +
+          "live site. The booking form only reached a step-by-step layout " +
+          "with no working fields. The project's " +
           `${f.hours.value} hours ran out first, and taking a booking still ` +
           "means someone typing it into the Google Sheet.",
-        "I would rather say that plainly than describe the tool as finished. " +
-          "The document generation is genuinely in use. The parts around it " +
-          "are a prototype that stopped when the clock did.",
+        "I delivered the document generator and put the companion tool online " +
+          "during the project. Transferring account ownership and handing over " +
+          "operation of the tool were not completed. It remains a prototype and companion tool, " +
+          "not a completed booking platform.",
       ],
     },
     {
       kind: "prose",
-      heading: "The finding they kept",
+      heading: "The messages the company was missing",
       body: [
-        `The communication audit mapped ${f.touchpointsAudited.value} touchpoints ` +
-          "across the booking lifecycle. The part the owner called most useful " +
-          `was not any of those. It was the ${f.missing.value} touchpoints the ` +
+        `I mapped ${f.touchpointsAudited.value} points of contact with couples ` +
+          "throughout a booking. The owner called the gaps the most useful " +
+          `finding: ${f.missing.value} messages the ` +
           "company was not sending at all: no booking confirmation separate " +
           "from the upsell, no morning-of message with the coordinator's phone " +
           "number, no request for a referral after the event. Finding the gaps " +

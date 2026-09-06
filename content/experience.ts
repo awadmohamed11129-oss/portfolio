@@ -17,10 +17,10 @@ export const roles: readonly Role[] = [
     location: "Toronto, ON (remote)",
     dates: "May to July 2026",
     bullets: [
-      "Wrote production ingestors for six of the City of Toronto's open " +
+      "Wrote ingestors for six of the City of Toronto's open " +
         "mobility datasets, covering traffic counts back to 1993 and about " +
-        `${civic.bikeTrips.value} bike-share trips a year. Shipped as three ` +
-        `pull requests, roughly ${civic.lines.value} lines, all reviewed before merge.`,
+        `${civic.bikeTrips.value} bike-share trips a year. Submitted three ` +
+        `pull requests with roughly ${civic.lines.value} lines for review.`,
       `Built a signal engine over ${civic.years311.value} of Toronto 311 data that ` +
         "finds rising complaint categories, hotspot areas, and early warnings, " +
         "and emits them as JSON with a written contract for whoever consumes it.",
@@ -29,8 +29,8 @@ export const roles: readonly Role[] = [
         "rename that invented a fake new complaint category, and a run of " +
         "pandemic-era zero-count months that inflated one growth figure from " +
         `${civic.covidReal.value} to ${civic.covidReported.value}.`,
-      `Every dataset shipped with contract tests and documentation, ${civic.tests.value} ` +
-        "tests passing across the work.",
+      "Delivered contract tests, source documentation, and sample data with the " +
+        "ingestors, so reviewers could check the output against its source.",
     ],
   },
   {
