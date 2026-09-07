@@ -37,32 +37,23 @@ export const pavescanCase: CaseStudy = {
       { label: "Estimated road condition (PCI)", fact: f.pci, note: `${f.pciRating.value}; PCI means Pavement Condition Index. Read the limits below.` },
     ], note: "The length of road covered by the score differs from the distance on the dashcam odometer. These figures describe this demo, not performance on all roads." },
     { kind: "prose", heading: "Why I built it", body: [
-      "Road inspections need careful observation and consistent scoring. I wanted software to take on some of the repetitive image review while keeping a link from every result to the footage that produced it.",
-      "I built the video processing steps, connected the detection and filtering models, linked findings to GPS positions, and developed the scoring and reports. Someone reviewing the result can inspect each record and correct it.",
-    ] },
-    { kind: "prose", heading: "From footage to a finding", body: [
-      `The sample contains ${f.clips.value} clips across ${f.stretches.value} separate stretches of Toronto road. The software picks frames at set distances, links them to locations, and combines nearby sightings of the same type within a ${f.mergeRadius.value} radius.`,
-      `${f.sightings.value} raw sightings become ${f.defects.value} findings. These are not all confirmed or separate defects: a long crack can produce several records, and some findings are mistakes.`,
-      `The scorer excludes ${f.coversExcluded.value} suspected utility covers, leaving ${f.scored.value} scored findings. ${f.shadowSuspects.value} findings are flagged as possible shadows. They remain visible so a reviewer can see where the model is uncertain.`,
+      "I wanted to reduce repetitive image review in road inspections. I built the video processing, connected the detection models, and added GPS mapping, condition estimates and reports. Every finding links back to its footage so a person can check it.",
     ] },
     { kind: "diagram", heading: "How a clip becomes a report", id: "pavescan-pipeline" },
-    { kind: "prose", heading: "Finding damage and checking for mistakes", body: [
-      "One model traces crack pixels, a process called segmentation. Another detects road damage. A road-surface model keeps the search on the pavement, while further models flag likely shadows and utility covers that can look like damage.",
-      "Mistakes still get through. Each finding keeps its source image, the sightings combined into it, and flags that show where the models are uncertain.",
+    { kind: "prose", heading: "Finding possible damage", body: [
+      "The software samples frames, looks for cracks and other damage on the pavement, and combines nearby sightings. Extra checks flag likely shadows and utility covers.",
+      `In the September demo, ${f.sightings.value} sightings became ${f.defects.value} findings. These are not confirmed, distinct defects: a long crack can appear more than once. The scorer excludes ${f.coversExcluded.value} suspected utility covers, leaving ${f.scored.value} scored findings.`,
     ] },
-    { kind: "callout", heading: "A scoring bug that changed the design", tone: "note", body: [
-      `In the August 2026 experiment, the old scorer gave ${f.legacyHigh.value} when the report grouped the road into 25 metre sections and ${f.legacyLow.value} at 500 metres, using the same input. That ${f.legacySpread.value} swing happened because penalties added up without accounting for the area surveyed.`,
-      `The replacement scores a fixed grid of road areas, called sample units. It uses damage density, or damage relative to area, following the approach in ASTM D6433. The saved August test returned ${f.pciAugustSweep.value} across the reporting lengths tested. That supports this fix; it does not prove every future survey will behave the same way.`,
-      `The September demo has ${f.sampleUnits.value} sample units and ${f.segments.value} reporting sections. An average across the road network can hide differences between stretches, so the report also keeps individual findings visible.`,
+    { kind: "callout", heading: "A scoring bug I fixed", tone: "note", body: [
+      `In an August experiment, changing the reporting sections from 25 to 500 metres moved the score from ${f.legacyHigh.value} to ${f.legacyLow.value}, even though the input was the same. The old scorer added penalties without accounting for the area surveyed.`,
+      `I replaced it with fixed road areas scored by damage density, following the approach in ASTM D6433. The saved August test returned ${f.pciAugustSweep.value} across the reporting lengths tested. That verifies this fix, not accuracy on every road.`,
     ] },
-    { kind: "callout", heading: "Where a person still needs to check", tone: "limitation", body: [
-      "A qualified inspector still needs to check the road. Estimating damage size from an image depends on the camera angle, scale and how much pavement is visible. The score is an estimate, not a certified field survey.",
-      `Possible shadows account for ${f.shadowSuspects.value} of the ${f.defects.value} findings in this sample. A large finding count or a plausible score does not tell us how accurate detection is. That needs a separate set of images with damage labelled independently of the model.`,
-      "The overall score says little about a specific location. Maps, cropped images and scores for each road section let a reviewer check the summary against the records behind it.",
+    { kind: "callout", heading: "What still needs checking", tone: "limitation", body: [
+      `${f.shadowSuspects.value} of the ${f.defects.value} findings are possible shadows. A large finding count does not prove accurate detection. That needs testing against independently labelled images.`,
+      "Damage size depends on camera angle and image scale. A qualified inspector must check the road; the score is an estimate, not a certified field survey. Section scores and source images help reviewers see what the overall average hides.",
     ] },
     { kind: "prose", heading: "What I learned", body: [
-      "The hardest part was deciding what a number meant. The length of road scored and the distance driven measure different things. A model finding may be a real defect or a mistake. Keeping those distinctions in the data changed the report and interface.",
-      "The next useful improvement is to test against independently labelled images and measure the actual size of damage more accurately. Those checks would make the results easier to trust.",
+      "A useful report needs to show where its numbers come from and where they might be wrong. My next steps are independent accuracy testing and better measurements of damage size.",
     ] },
   ],
 };

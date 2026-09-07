@@ -13,7 +13,7 @@ export function HomeContent() {
       <Link className="work-link" href="/projects" onClick={follow}>Explore my work <span aria-hidden="true">↗</span></Link>
     </section>
     <section className="arrival" id="arrival" aria-label="Continue exploring" inert>
-      <p>Selected work.</p><Link className="work-link" href="/projects" onClick={follow}>Explore my work <span aria-hidden="true">↗</span></Link>
+      <p>Projects.</p><Link className="work-link" href="/projects" onClick={follow}>Explore my work <span aria-hidden="true">↗</span></Link>
     </section>
     <div id="film-runway" aria-hidden="true" />
     <noscript><p className="no-script">Use the navigation to explore the portfolio. This visual journey needs JavaScript.</p></noscript>

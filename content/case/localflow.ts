@@ -60,82 +60,23 @@ export const localflowCase: CaseStudy = {
       ],
       note: "Measured August 19, 2026 on one Windows PC using its graphics processor and a fixed set of recordings. These results apply to that setup. The test did not use the microphone.",
     },
-    {
-      kind: "prose",
-      heading: "Why I built it",
-      body: [
-        "I liked using a commercial dictation tool, but wanted to keep my " +
-          "voice on my own machine and avoid another subscription. I also " +
-          "wanted control over how much it changed my wording.",
-        "I connected models that run locally and measured how quickly my PC " +
-          "returned the text. I then worked on the wait after releasing the " +
-          "key, what happens when a model fails, and how much cleanup to allow.",
-      ],
-    },
-    {
-      kind: "prose",
-      heading: "How it works",
-      body: [
-        "Hold Right Shift and talk. When you release it, Whisper turns the " +
-          "speech into text on the graphics processor. A small language model " +
-          "on the same processor cleans it up, then the app pastes it at the " +
-          "cursor. Right Alt gives the same text without punctuation, which I " +
-          "use in a command-line terminal. Double-tapping either key keeps " +
-          "recording on, so I do not have to hold it through a long paragraph.",
-        "The cleanup model uses the active app's program name as a style " +
-          "hint: casual for chat, more like an email in an email app. " +
-          "It uses only that executable name, not screenshots or other app content.",
-        "A personal dictionary helps with names the speech model gets wrong. " +
-          "It corrects close matches to my saved spelling, such as changing " +
-          "\"versal\" to \"Vercel\".",
-      ],
-    },
-    {
-      kind: "callout",
-      heading: "Keep the words I actually said",
-      tone: "note",
-      body: [
-        "The first version cleaned up aggressively. It cut filler, resolved " +
-          "spoken self-corrections, and generally made me sound better than I " +
-          "had. It was also the version I trusted least, because I could not " +
-          "tell from the output what I had actually said.",
-        "So the default changed to keep almost exactly what I said: remove the ums, fix the " +
-          "punctuation, keep every real word. The heavier cleanup is still " +
-          "there behind a setting. With lighter cleanup, I can compare the output " +
-          "with what I remember saying, instead of trying to spot an unexpected rewrite.",
-        "There are backups for each step. If the speech model on the graphics " +
-          "processor fails, another runs on the main processor (CPU). If the " +
-          "cleanup model is unavailable, simple text rules take over. The " +
-          "result may be slower or less polished, but the words are still available.",
-      ],
-    },
-    {
-      kind: "callout",
-      heading: "Limits I still work around",
-      tone: "limitation",
-      body: [
-        "Supported languages depend on the speech model. The graphics-processor " +
-          "version uses Whisper; the Parakeet backup supports a different set. " +
-          "This test does not tell me how accurate it is across languages or accents.",
-        "Windows blocks pasting into apps running as administrator unless " +
-          "LocalFlow also has that permission. Some terminals ignore pasted " +
-          "text, so the tool types it character by character there. These are workarounds.",
-        "The automated tests feed recordings directly into the software, " +
-          "bypassing the microphone. The error rate and wait time come from a " +
-          "fixed test on one PC and graphics processor. They do not measure " +
-          "microphone quality or tell us how other hardware will perform.",
-        "The app saves both raw and cleaned text in a local history file. " +
-          "Keeping speech off a cloud service still leaves that record on the PC.",
-      ],
-    },
-    {
-      kind: "prose",
-      heading: "Where it stands",
-      body: [
-        "I use it every day, including for a good share of the writing that " +
-          "went into this site. Personal use helps me find awkward behaviour between " +
-          "the benchmark runs; it does not replace those measurements.",
-      ],
-    },
+    { kind: "prose", heading: "Why I built it", body: [
+      "I wanted dictation without a subscription, with my voice staying on my PC and more control over changes to my wording. I connected local speech and language models to a Windows app that types where my cursor is.",
+    ] },
+    { kind: "prose", heading: "How it works", body: [
+      "Hold Right Shift, speak, then release. Whisper transcribes the recording, a small language model cleans up the text, and the app pastes it at the cursor. Double-tap to keep recording without holding the key.",
+      "A personal dictionary helps with names. The active app's program name guides the writing style; the tool does not read screenshots or app content. Right Alt gives unpunctuated text for terminals.",
+    ] },
+    { kind: "callout", heading: "Keeping my words", tone: "note", body: [
+      "Early versions rewrote too much. The default now removes filler and fixes punctuation while keeping my real words. Stronger cleanup is optional.",
+      "If a model fails, backup speech recognition or simple text rules take over. The result may be slower or less polished, but I still get my words.",
+    ] },
+    { kind: "callout", heading: "Limits", tone: "limitation", body: [
+      "The benchmark uses saved recordings on one PC, bypassing the microphone. It does not establish performance on other hardware, across accents or in other languages.",
+      "Pasting into administrator apps needs matching permissions. Some terminals need text typed character by character. Raw and cleaned transcripts are saved locally, so private speech still leaves a record on the PC.",
+    ] },
+    { kind: "prose", heading: "Where it stands", body: [
+      "I use it every day, including for some of the writing on this site. It is a personal tool with no public download.",
+    ] },
   ],
 };
