@@ -24,9 +24,9 @@
 @media (max-width: 1023px) {
   .room { position: relative; inset: auto; width: calc(100% + 2 * var(--column-pad)); margin-inline: calc(-1 * var(--column-pad)); height: 38svh; min-height: 260px; z-index: 0; }
   .photoPlane { width: max(100%, 67.52svh); min-width: 462px; }
-  .monitor { min-height: 44px; padding: 3px; }
-  .monitor span { font-size: 10px; line-height: 1.2; white-space: nowrap; }
-  .monitor small { font-size: 7px; line-height: 1.2; margin-top: 4px; }
+  .monitor { min-height: 44px; padding: 3px; container-type: inline-size; }
+  .monitor span { font-size: clamp(7px, 12cqw, 10px); line-height: 1.2; white-space: nowrap; }
+  .monitor small { font-size: clamp(6px, 9cqw, 7px); line-height: 1.2; margin-top: 4px; }
 }
 @media (prefers-reduced-motion: no-preference) {
   .room { animation: room-arrive 1.2s ease both; }
